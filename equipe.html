@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI INVEST</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+
+  --blue: #1d4ed8;
+  --blue-dark: #123a9e;
+  --blue-light: #3b82f6;
+
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+
+  --green: #16a34a;
+
+  --bg: #f4f7fc;
+
+  --text: #172033;
+  --muted: #718096;
+
+  --white: #ffffff;
+}
+
+body {
+
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59,130,246,.10),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff,
+      #f8fafc
+    );
+
+  min-height: 100vh;
+
+  color: var(--text);
+
+  padding-bottom: 30px;
+
+  animation: pageIn .45s ease;
+}
+
+@keyframes pageIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59,130,246,.45),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #123a9e,
+      #1d4ed8 55%,
+      #2563eb
+    );
+
+  color: white;
+
+  padding:
+    24px
+    20px
+    38px;
+
+  border-radius:
+    0
+    0
+    30px
+    30px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(29,78,216,.20);
+}
+
+header::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.06);
+
+  right: -70px;
+  top: -80px;
+}
+
+header::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  left: -45px;
+  bottom: -55px;
+}
+
+.header-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 520px;
+
+  margin: auto;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 23px;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+.logo-icon {
+
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,.14);
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  border-radius: 11px;
+}
+
+.logo-icon i {
+
+  color: var(--gold-light);
+
+  font-size: 16px;
+}
+
+.logo span {
+
+  color: var(--gold-light);
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+header h1 {
+
+  font-size: 25px;
+
+  font-weight: 800;
+
+  margin-bottom: 7px;
+
+  letter-spacing: -.5px;
+}
+
+header p {
+
+  color: #dbeafe;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+main {
+
+  width:
+    calc(100% - 30px);
+
+  max-width: 520px;
+
+  margin:
+    -20px auto 0;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+
+  background:
+    rgba(255,255,255,.98);
+
+  border:
+    1px solid #e6eaf1;
+
+  border-radius: 21px;
+
+  padding: 19px;
+
+  margin-bottom: 15px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.06);
+}
+
+
+/* =========================
+   CONVITE
+========================= */
+
+.convite-card {
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.convite-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(59,130,246,.05);
+
+  right: -55px;
+  top: -55px;
+}
+
+.section-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  margin-bottom: 6px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.section-title i {
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  font-size: 14px;
+}
+
+.section-description {
+
+  color:
+    var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+
+  margin-bottom: 14px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.convite-box {
+
+  position: relative;
+
+  z-index: 2;
+
+  background:
+    #f8fafc;
+
+  border:
+    1px solid #e1e8f2;
+
+  border-radius: 13px;
+
+  padding: 11px;
+}
+
+.link-texto {
+
+  display: block;
+
+  font-size: 10px;
+
+  color:
+    var(--blue);
+
+  font-weight: 600;
+
+  word-break: break-all;
+
+  line-height: 1.5;
+
+  margin-bottom: 10px;
+}
+
+.copy-btn {
+
+  width: 100%;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color:
+    white;
+
+  font-family:
+    inherit;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 13px
+    rgba(29,78,216,.18);
+
+  transition:
+    .2s;
+}
+
+.copy-btn:hover {
+
+  transform:
+    translateY(-2px);
+}
+
+.copy-btn:active {
+
+  transform:
+    scale(.98);
+}
+
+
+/* =========================
+   RESUMO
+========================= */
+
+.resumo-title {
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  margin-bottom: 12px;
+}
+
+.niveis {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+.nivel-card {
+
+  position: relative;
+
+  background:
+    #ffffff;
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius: 17px;
+
+  padding: 16px;
+
+  overflow: hidden;
+
+  transition:
+    transform .2s,
+    box-shadow .2s;
+}
+
+.nivel-card:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(15,23,42,.07);
+}
+
+.nivel-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+.nivel-top {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+}
+
+.nivel-nome {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  color:
+    var(--text);
+}
+
+.nivel-icon {
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  font-size: 13px;
+}
+
+.percentagem {
+
+  background:
+    #fff7ed;
+
+  color:
+    #c2410c;
+
+  padding:
+    5px 9px;
+
+  border-radius:
+    20px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+.nivel-info {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 9px 0;
+
+  border-top:
+    1px solid #f0f2f6;
+
+  font-size: 10px;
+
+  color:
+    var(--muted);
+}
+
+.nivel-info strong {
+
+  color:
+    var(--text);
+
+  font-size: 11px;
+}
+
+.comissao {
+
+  color:
+    var(--green) !important;
+
+  font-weight: 800;
+}
+
+
+/* =========================
+   COMISSÕES
+========================= */
+
+.info-comissao {
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #f8fbff
+    );
+
+  border:
+    1px solid #dbeafe;
+
+  border-radius: 18px;
+
+  padding: 17px;
+
+  margin-bottom: 15px;
+
+  color:
+    #4b5563;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+.comissao-header {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color:
+    var(--blue);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  margin-bottom: 7px;
+}
+
+.comissao-niveis {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 7px;
+
+  margin-top: 11px;
+}
+
+.comissao-nivel {
+
+  flex: 1;
+
+  text-align: center;
+
+  background:
+    white;
+
+  border:
+    1px solid #e0e9f7;
+
+  border-radius: 10px;
+
+  padding: 9px 4px;
+}
+
+.comissao-nivel span {
+
+  display: block;
+
+  color:
+    var(--muted);
+
+  font-size: 8px;
+
+  margin-bottom: 3px;
+}
+
+.comissao-nivel strong {
+
+  color:
+    var(--blue);
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   CARREGAMENTO
+========================= */
+
+.loading {
+
+  text-align: center;
+
+  padding: 10px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+  text-align: center;
+
+  color:
+    #94a3b8;
+
+  font-size: 9px;
+
+  padding:
+    5px 20px 20px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 360px) {
+
+  header h1 {
+
+    font-size: 23px;
+
+  }
+
+  main {
+
+    width:
+      calc(100% - 22px);
+
+  }
+
+  .card {
+
+    padding: 16px;
+
+  }
+
+  .comissao-nivel strong {
+
+    font-size: 12px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="header-content">
+
+    <div class="logo">
+
+      <div class="logo-icon">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+      </div>
+
+      LIBRAKI <span>INVEST</span>
+
+    </div>
+
+    <h1>
+      Minha Equipe
+    </h1>
+
+    <p>
+      Convide pessoas e acompanhe
+      suas comissões por níveis.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<!-- LINK DE CONVITE -->
+
+<div class="card convite-card">
+
+  <div class="section-title">
+
+    <i class="fa-solid fa-user-plus"></i>
+
+    Seu link de convite
+
+  </div>
+
+  <p class="section-description">
+
+    Compartilhe seu link e convide novos membros
+    para fazer parte da sua equipe.
+
+  </p>
+
+  <div class="convite-box">
+
+    <span
+      id="linkConvite"
+      class="link-texto">
+
+      Carregando...
+
+    </span>
+
+    <button
+      class="copy-btn"
+      onclick="copiarLink()">
+
+      <i class="fa-solid fa-copy"></i>
+
+      &nbsp;
+
+      Copiar link de convite
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- RESUMO -->
+
+<div class="card">
+
+  <div class="resumo-title">
+
+    <i class="fa-solid fa-users"></i>
+
+    &nbsp;
+
+    Resumo da equipe
+
+  </div>
+
+  <div class="niveis">
+
+
+    <!-- NÍVEL 1 -->
+
+    <div class="nivel-card">
+
+      <div class="nivel-top">
+
+        <div class="nivel-nome">
+
+          <div class="nivel-icon">
+
+            <i class="fa-solid fa-user-group"></i>
+
+          </div>
+
+          Nível 1
+
+        </div>
+
+        <div class="percentagem">
+          30%
+        </div>
+
+      </div>
+
+      <div class="nivel-info">
+
+        <span>
+          Total convidados
+        </span>
+
+        <strong id="totalN1">
+          0
+        </strong>
+
+      </div>
+
+      <div class="nivel-info">
+
+        <span>
+          Comissão
+        </span>
+
+        <strong
+          class="comissao"
+          id="comissaoN1">
+
+          0 Kz
+
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- NÍVEL 2 -->
+
+    <div class="nivel-card">
+
+      <div class="nivel-top">
+
+        <div class="nivel-nome">
+
+          <div class="nivel-icon">
+
+            <i class="fa-solid fa-users"></i>
+
+          </div>
+
+          Nível 2
+
+        </div>
+
+        <div class="percentagem">
+          5%
+        </div>
+
+      </div>
+
+      <div class="nivel-info">
+
+        <span>
+          Total convidados
+        </span>
+
+        <strong id="totalN2">
+          0
+        </strong>
+
+      </div>
+
+      <div class="nivel-info">
+
+        <span>
+          Comissão
+        </span>
+
+        <strong
+          class="comissao"
+          id="comissaoN2">
+
+          0 Kz
+
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- NÍVEL 3 -->
+
+    <div class="nivel-card">
+
+      <div class="nivel-top">
+
+        <div class="nivel-nome">
+
+          <div class="nivel-icon">
+
+            <i class="fa-solid fa-network-wired"></i>
+
+          </div>
+
+          Nível 3
+
+        </div>
+
+        <div class="percentagem">
+          1%
+        </div>
+
+      </div>
+
+      <div class="nivel-info">
+
+        <span>
+          Total convidados
+        </span>
+
+        <strong id="totalN3">
+          0
+        </strong>
+
+      </div>
+
+      <div class="nivel-info">
+
+        <span>
+          Comissão
+        </span>
+
+        <strong
+          class="comissao"
+          id="comissaoN3">
+
+          0 Kz
+
+        </strong>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<!-- INFORMAÇÃO -->
+
+<div class="info-comissao">
+
+  <div class="comissao-header">
+
+    <i class="fa-solid fa-coins"></i>
+
+    Como funcionam as comissões
+
+  </div>
+
+  <div>
+
+    Você recebe automaticamente comissões
+    quando os membros da sua equipe realizam
+    investimentos.
+
+  </div>
+
+  <div class="comissao-niveis">
+
+    <div class="comissao-nivel">
+
+      <span>Nível 1</span>
+
+      <strong>30%</strong>
+
+    </div>
+
+    <div class="comissao-nivel">
+
+      <span>Nível 2</span>
+
+      <strong>5%</strong>
+
+    </div>
+
+    <div class="comissao-nivel">
+
+      <span>Nível 3</span>
+
+      <strong>1%</strong>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+  LIBRAKI INVEST © 2026
+
+</footer>
+
+
+<!-- ==================================================
+     FIREBASE
+================================================== -->
+
+<script
+src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js">
+</script>
+
+<script
+src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js">
+</script>
+
+<script
+src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js">
+</script>
+
+
+<script>
+
+/* ==================================================
+   CONFIGURAÇÃO FIREBASE
+================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+  authDomain:
+    "preditor-lucifer.firebaseapp.com",
+
+  databaseURL:
+    "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+  projectId:
+    "preditor-lucifer",
+
+  storageBucket:
+    "preditor-lucifer.firebasestorage.app",
+
+  messagingSenderId:
+    "409997785375",
+
+  appId:
+    "1:409997785375:android:d4c28097f018e30ae5182a"
+
+};
+
+
+firebase.initializeApp(firebaseConfig);
+
+
+const auth =
+  firebase.auth();
+
+const database =
+  firebase.database();
+
+
+/* ==================================================
+   FUNÇÃO PARA FORMATAR DINHEIRO
+================================================== */
+
+function formatarKz(valor) {
+
+  return Number(valor || 0)
+    .toLocaleString("pt-AO") + " Kz";
+
+}
+
+
+/* ==================================================
+   AUTENTICAÇÃO
+================================================== */
+
+auth.onAuthStateChanged(function(user) {
+
+
+  if (!user) {
+
+    window.location.href =
+      "index.html";
+
+    return;
+
+  }
+
+
+  const uid =
+    user.uid;
+
+
+  /*
+     IMPORTANTE:
+
+     O cadastro grava:
+     userId.substring(0, 6)
+
+     Portanto usamos também
+     os 6 PRIMEIROS caracteres aqui.
+  */
+
+  const codigoConvite =
+    uid.substring(0, 6);
+
+
+  /* ==================================================
+     LINK DE CONVITE
+  ================================================== */
+
+  /*
+     Altere cadastro.html caso
+     o nome do seu arquivo de cadastro
+     seja diferente.
+  */
+
+  const linkConvite =
+    window.location.origin +
+    "/0/login.index.html?ref=" +
+    codigoConvite;
+
+
+  document.getElementById(
+    "linkConvite"
+  ).textContent =
+    linkConvite;
+
+
+  /* ==================================================
+     LER USUÁRIOS
+  ================================================== */
+
+  const usuariosRef =
+    database.ref("usuarios");
+
+
+  usuariosRef.on(
+    "value",
+    function(snapshot) {
+
+
+      const dados =
+        snapshot.val();
+
+
+      if (!dados) {
+
+        document.getElementById(
+          "totalN1"
+        ).textContent = "0";
+
+        document.getElementById(
+          "totalN2"
+        ).textContent = "0";
+
+        document.getElementById(
+          "totalN3"
+        ).textContent = "0";
+
+        return;
+
+      }
+
+
+      let nivel1 = [];
+      let nivel2 = [];
+      let nivel3 = [];
+
+
+      /* ==================================================
+         NÍVEL 1
+      ================================================== */
+
+      Object.entries(dados).forEach(
+        function([uidUsuario, info]) {
+
+
+          if (!info)
+            return;
+
+
+          const convidadoPor =
+            String(
+              info.convidadoPor || ""
+            );
+
+
+          /*
+             O cadastro grava exatamente
+             o código recebido no link.
+          */
+
+          if (
+            convidadoPor ===
+            codigoConvite
+          ) {
+
+            nivel1.push({
+              uid: uidUsuario,
+              info: info
+            });
+
+          }
+
+        }
+      );
+
+
+      /* ==================================================
+         NÍVEL 2
+      ================================================== */
+
+      nivel1.forEach(
+        function(membroN1) {
+
+
+          const codigoN1 =
+            membroN1.uid.substring(0, 6);
+
+
+          Object.entries(dados).forEach(
+            function([uidUsuario, info]) {
+
+
+              if (!info)
+                return;
+
+
+              const convidadoPor =
+                String(
+                  info.convidadoPor || ""
+                );
+
+
+              if (
+                convidadoPor ===
+                codigoN1
+              ) {
+
+                nivel2.push({
+                  uid: uidUsuario,
+                  info: info
+                });
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+      /* ==================================================
+         NÍVEL 3
+      ================================================== */
+
+      nivel2.forEach(
+        function(membroN2) {
+
+
+          const codigoN2 =
+            membroN2.uid.substring(0, 6);
+
+
+          Object.entries(dados).forEach(
+            function([uidUsuario, info]) {
+
+
+              if (!info)
+                return;
+
+
+              const convidadoPor =
+                String(
+                  info.convidadoPor || ""
+                );
+
+
+              if (
+                convidadoPor ===
+                codigoN2
+              ) {
+
+                nivel3.push({
+                  uid: uidUsuario,
+                  info: info
+                });
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+      /* ==================================================
+         CALCULAR COMISSÕES
+      ================================================== */
+
+      let comissaoN1 = 0;
+      let comissaoN2 = 0;
+      let comissaoN3 = 0;
+
+
+      /* NÍVEL 1 */
+
+      nivel1.forEach(
+        function(membro) {
+
+          const investimentos =
+            membro.info.investimentos;
+
+          if (!investimentos)
+            return;
+
+
+          Object.values(
+            investimentos
+          ).forEach(
+            function(investimento) {
+
+
+              if (
+                investimento &&
+                investimento.status ===
+                "ativo"
+              ) {
+
+                const preco =
+                  Number(
+                    investimento.preco || 0
+                  );
+
+                comissaoN1 +=
+                  preco * 0.30;
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+      /* NÍVEL 2 */
+
+      nivel2.forEach(
+        function(membro) {
+
+          const investimentos =
+            membro.info.investimentos;
+
+          if (!investimentos)
+            return;
+
+
+          Object.values(
+            investimentos
+          ).forEach(
+            function(investimento) {
+
+
+              if (
+                investimento &&
+                investimento.status ===
+                "ativo"
+              ) {
+
+                const preco =
+                  Number(
+                    investimento.preco || 0
+                  );
+
+                comissaoN2 +=
+                  preco * 0.05;
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+      /* NÍVEL 3 */
+
+      nivel3.forEach(
+        function(membro) {
+
+          const investimentos =
+            membro.info.investimentos;
+
+          if (!investimentos)
+            return;
+
+
+          Object.values(
+            investimentos
+          ).forEach(
+            function(investimento) {
+
+
+              if (
+                investimento &&
+                investimento.status ===
+                "ativo"
+              ) {
+
+                const preco =
+                  Number(
+                    investimento.preco || 0
+                  );
+
+                comissaoN3 +=
+                  preco * 0.01;
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+      /* ==================================================
+         ATUALIZAR INTERFACE
+      ================================================== */
+
+      document.getElementById(
+        "totalN1"
+      ).textContent =
+        nivel1.length;
+
+
+      document.getElementById(
+        "totalN2"
+      ).textContent =
+        nivel2.length;
+
+
+      document.getElementById(
+        "totalN3"
+      ).textContent =
+        nivel3.length;
+
+
+      document.getElementById(
+        "comissaoN1"
+      ).textContent =
+        formatarKz(
+          comissaoN1
+        );
+
+
+      document.getElementById(
+        "comissaoN2"
+      ).textContent =
+        formatarKz(
+          comissaoN2
+        );
+
+
+      document.getElementById(
+        "comissaoN3"
+      ).textContent =
+        formatarKz(
+          comissaoN3
+        );
+
+    },
+    function(error) {
+
+      console.error(
+        "Erro ao carregar equipe:",
+        error
+      );
+
+      document.getElementById(
+        "linkConvite"
+      ).textContent =
+        "Erro ao carregar dados.";
+
+    }
+  );
+
+});
+
+
+/* ==================================================
+   COPIAR LINK
+================================================== */
+
+function copiarLink() {
+
+  const texto =
+    document.getElementById(
+      "linkConvite"
+    ).textContent;
+
+
+  if (
+    !texto ||
+    texto === "Carregando..."
+  ) {
+
+    alert(
+      "O link ainda não foi carregado."
+    );
+
+    return;
+
+  }
+
+
+  if (
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ) {
+
+
+    navigator.clipboard
+      .writeText(texto)
+      .then(
+        mostrarCopiado
+      )
+      .catch(
+        copiarAlternativo
+      );
+
+
+  } else {
+
+    copiarAlternativo();
+
+  }
+
+}
+
+
+/* ==================================================
+   MÉTODO ALTERNATIVO DE CÓPIA
+================================================== */
+
+function copiarAlternativo() {
+
+  const texto =
+    document.getElementById(
+      "linkConvite"
+    ).textContent;
+
+
+  const textarea =
+    document.createElement(
+      "textarea"
+    );
+
+
+  textarea.value =
+    texto;
+
+
+  textarea.style.position =
+    "fixed";
+
+  textarea.style.left =
+    "-9999px";
+
+
+  document.body.appendChild(
+    textarea
+  );
+
+
+  textarea.select();
+
+
+  try {
+
+    document.execCommand(
+      "copy"
+    );
+
+    mostrarCopiado();
+
+  } catch (error) {
+
+    alert(
+      "Não foi possível copiar o link."
+    );
+
+  }
+
+
+  document.body.removeChild(
+    textarea
+  );
+
+}
+
+
+/* ==================================================
+   FEEDBACK DE CÓPIA
+================================================== */
+
+function mostrarCopiado() {
+
+  const botao =
+    document.querySelector(
+      ".copy-btn"
+    );
+
+
+  const original =
+    botao.innerHTML;
+
+
+  botao.innerHTML =
+    '<i class="fa-solid fa-check"></i> &nbsp; Link copiado!';
+
+
+  botao.style.background =
+    "linear-gradient(135deg,#16a34a,#15803d)";
+
+
+  setTimeout(
+    function() {
+
+      botao.innerHTML =
+        original;
+
+      botao.style.background =
+        "linear-gradient(135deg,#2563eb,#1d4ed8)";
+
+    },
+    1800
+  );
+
+}
+
+</script>
+
+</body>
+
+</html>

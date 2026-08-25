@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI-INVEST</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #1d4ed8;
+  --blue-dark: #123a9e;
+  --blue-light: #3b82f6;
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+  --bg: #f4f7fc;
+  --text: #172033;
+  --muted: #718096;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59,130,246,.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff,
+      #f8fafc
+    );
+
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  color: var(--text);
+}
+
+.container {
+  width: 100%;
+  max-width: 410px;
+
+  background: rgba(255,255,255,.96);
+
+  border-radius: 28px;
+
+  padding: 0 22px 25px;
+
+  box-shadow:
+    0 20px 60px rgba(15,23,42,.12),
+    0 3px 10px rgba(29,78,216,.04);
+
+  border: 1px solid rgba(255,255,255,.8);
+
+  overflow: hidden;
+}
+
+.top-banner {
+  position: relative;
+  overflow: hidden;
+
+  margin: 0 -22px 25px;
+
+  padding: 35px 22px 30px;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59,130,246,.5),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #123a9e,
+      #1d4ed8 55%,
+      #2563eb
+    );
+
+  color: white;
+
+  border-radius: 0 0 28px 28px;
+}
+
+.top-banner::before {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.06);
+
+  right: -70px;
+  top: -75px;
+}
+
+.top-banner::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.05);
+
+  left: -45px;
+  bottom: -55px;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 25px;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  letter-spacing: -.5px;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,.14);
+
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+.logo-icon i {
+  color: var(--gold-light);
+
+  font-size: 16px;
+}
+
+.logo span {
+  color: var(--gold-light);
+}
+
+.top-banner h1 {
+  font-size: 25px;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  margin-bottom: 8px;
+}
+
+.top-banner p {
+  font-size: 13px;
+
+  color: #dbeafe;
+
+  line-height: 1.5;
+}
+
+.form-title {
+  margin-bottom: 15px;
+}
+
+.form-title h2 {
+  font-size: 17px;
+
+  font-weight: 800;
+
+  color: #172033;
+}
+
+.form-title p {
+  font-size: 11px;
+
+  color: var(--muted);
+
+  margin-top: 4px;
+}
+
+.input-group {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  height: 54px;
+
+  margin-bottom: 13px;
+
+  background: #f7f9fd;
+
+  border: 1px solid #e4e9f2;
+
+  border-radius: 15px;
+
+  padding: 0 15px;
+
+  transition: .25s ease;
+}
+
+.input-group:focus-within {
+  background: #ffffff;
+
+  border-color: #93b4f7;
+
+  box-shadow:
+    0 0 0 4px rgba(37,99,235,.08);
+}
+
+.input-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #eaf1ff;
+
+  border-radius: 10px;
+
+  margin-right: 11px;
+
+  color: var(--blue);
+
+  flex-shrink: 0;
+}
+
+.input-icon i {
+  font-size: 14px;
+}
+
+.input-group input {
+  border: none;
+
+  outline: none;
+
+  width: 100%;
+
+  background: transparent;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  color: var(--text);
+}
+
+.input-group input::placeholder {
+  color: #9aa6b8;
+}
+
+.password-toggle {
+  border: none;
+
+  background: transparent;
+
+  color: #8a96a8;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  padding: 5px;
+}
+
+.password-toggle:active {
+  transform: scale(.9);
+}
+
+.bottom-text {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin: 14px 0 18px;
+
+  color: var(--blue);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.bottom-text i {
+  font-size: 12px;
+}
+
+.actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.btn-secondary,
+.btn-primary {
+  height: 52px;
+
+  border-radius: 14px;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: .25s ease;
+}
+
+.btn-secondary {
+  background: white;
+
+  border: 1.5px solid #2563eb;
+
+  color: var(--blue);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+
+  background: #eff6ff;
+}
+
+.btn-primary {
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  border: none;
+
+  color: white;
+
+  box-shadow:
+    0 7px 18px rgba(29,78,216,.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(29,78,216,.32);
+}
+
+.btn-primary:disabled {
+  opacity: .65;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  transform: scale(.97);
+}
+
+.security-info {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 20px;
+
+  color: #98a2b3;
+
+  font-size: 9px;
+}
+
+.security-info i {
+  color: #22c55e;
+
+  font-size: 10px;
+}
+
+.status {
+  display: none;
+
+  margin: 0 0 15px;
+
+  padding: 11px 12px;
+
+  border-radius: 12px;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  text-align: center;
+}
+
+.status.error {
+  display: block;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  border: 1px solid #fecaca;
+}
+
+.status.success {
+  display: block;
+
+  background: #f0fdf4;
+
+  color: #15803d;
+
+  border: 1px solid #bbf7d0;
+}
+
+.status.loading {
+  display: block;
+
+  background: #eff6ff;
+
+  color: #1d4ed8;
+
+  border: 1px solid #bfdbfe;
+}
+
+@media (max-width: 360px) {
+
+  body {
+    padding: 12px;
+  }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .top-banner {
+    margin-left: -18px;
+    margin-right: -18px;
+  }
+
+  .top-banner h1 {
+    font-size: 22px;
+  }
+
+  .input-group {
+    height: 51px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="top-banner">
+
+    <div class="banner-content">
+
+      <div class="logo">
+
+        <div class="logo-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        LIBRAKI <span>INVEST</span>
+
+      </div>
+
+      <h1>
+        Olá, seja bem-vindo!
+      </h1>
+
+      <p>
+        Acesse sua conta e gerencie seus investimentos.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="form-title">
+
+    <h2>
+      Entrar na sua conta
+    </h2>
+
+    <p>
+      Informe seus dados para continuar
+    </p>
+
+  </div>
+
+
+  <!-- MENSAGEM DE STATUS -->
+
+  <div
+    id="status"
+    class="status"
+    role="alert"
+  ></div>
+
+
+  <!-- TELEFONE -->
+
+  <div class="input-group">
+
+    <div class="input-icon">
+
+      <i class="fas fa-phone"></i>
+
+    </div>
+
+    <input
+      type="tel"
+      placeholder="+244 Número de telefone"
+      id="telefone"
+      autocomplete="tel"
+      inputmode="tel"
+    >
+
+  </div>
+
+
+  <!-- SENHA -->
+
+  <div class="input-group">
+
+    <div class="input-icon">
+
+      <i class="fas fa-lock"></i>
+
+    </div>
+
+    <input
+      type="password"
+      placeholder="Senha de entrada"
+      id="senha"
+      autocomplete="current-password"
+    >
+
+    <button
+      class="password-toggle"
+      type="button"
+      onclick="mostrarSenha()"
+      aria-label="Mostrar senha"
+    >
+
+      <i
+        class="fas fa-eye"
+        id="eyeIcon"
+      ></i>
+
+    </button>
+
+  </div>
+
+
+  <!-- SUPORTE -->
+
+  <div
+    class="bottom-text"
+    onclick="abrirWhatsApp()"
+  >
+
+    <i class="fab fa-whatsapp"></i>
+
+    Contatar o serviço ao cliente
+
+  </div>
+
+
+  <!-- BOTÕES -->
+
+  <div class="actions">
+
+    <button
+      class="btn-secondary"
+      type="button"
+      onclick="irParaCadastro()"
+    >
+      Registrar
+    </button>
+
+    <button
+      class="btn-primary"
+      id="btnEntrar"
+      type="button"
+      onclick="entrar()"
+    >
+      Entrar
+    </button>
+
+  </div>
+
+
+  <div class="security-info">
+
+    <i class="fas fa-shield-halved"></i>
+
+    Ambiente protegido e seguro
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+
+<script>
+
+/* =====================================================
+   CONFIGURAÇÃO FIREBASE
+   PROJETO: PREDITOR-LUCIFER
+===================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+  authDomain:
+    "preditor-lucifer.firebaseapp.com",
+
+  databaseURL:
+    "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+  projectId:
+    "preditor-lucifer",
+
+  storageBucket:
+    "preditor-lucifer.firebasestorage.app",
+
+  messagingSenderId:
+    "409997785375"
+
+};
+
+
+/* =====================================================
+   INICIALIZAR FIREBASE
+===================================================== */
+
+try {
+
+  if (!firebase.apps.length) {
+
+    firebase.initializeApp(firebaseConfig);
+
+  }
+
+} catch (error) {
+
+  console.error(
+    "Erro ao inicializar Firebase:",
+    error
+  );
+
+}
+
+
+/* =====================================================
+   REFERÊNCIAS
+===================================================== */
+
+const auth = firebase.auth();
+
+const database = firebase.database();
+
+const telefoneInput =
+  document.getElementById("telefone");
+
+const senhaInput =
+  document.getElementById("senha");
+
+const btnEntrar =
+  document.getElementById("btnEntrar");
+
+const statusBox =
+  document.getElementById("status");
+
+
+/* =====================================================
+   MENSAGENS
+===================================================== */
+
+function mostrarStatus(
+  mensagem,
+  tipo = "loading"
+) {
+
+  statusBox.textContent = mensagem;
+
+  statusBox.className =
+    "status " + tipo;
+
+}
+
+
+function limparStatus() {
+
+  statusBox.textContent = "";
+
+  statusBox.className =
+    "status";
+
+}
+
+
+/* =====================================================
+   NORMALIZAR TELEFONE
+===================================================== */
+
+function normalizarTelefone(telefone) {
+
+  telefone = telefone.trim();
+
+  /*
+     Remove espaços, parênteses e hífens.
+  */
+
+  telefone =
+    telefone.replace(
+      /[\s\-().]/g,
+      ""
+    );
+
+
+  /*
+     Se o utilizador escrever:
+     923123456
+
+     transforma em:
+     +244923123456
+  */
+
+  if (
+    /^9\d{8}$/.test(telefone)
+  ) {
+
+    telefone =
+      "+244" + telefone;
+
+  }
+
+
+  /*
+     Se escrever 00244...
+  */
+
+  if (
+    telefone.startsWith("00244")
+  ) {
+
+    telefone =
+      "+" +
+      telefone.substring(2);
+
+  }
+
+
+  return telefone;
+
+}
+
+
+/* =====================================================
+   EMAIL INTERNO
+===================================================== */
+
+function gerarEmailDoTelefone(
+  telefone
+) {
+
+  /*
+     Firebase Authentication
+     não permite login diretamente
+     por telefone usando este método.
+
+     Por isso o sistema converte
+     o telefone em um email interno.
+
+     Exemplo:
+
+     +244923123456
+
+     vira:
+
+     244923123456@kerocapital.com
+  */
+
+  const numero =
+    telefone.replace(
+      /^\+/,
+      ""
+    );
+
+  return (
+    numero +
+    "@kerocapital.com"
+  );
+
+}
+
+
+/* =====================================================
+   ENTRAR
+===================================================== */
+
+async function entrar() {
+
+  limparStatus();
+
+  let telefone =
+    telefoneInput.value.trim();
+
+  const senha =
+    senhaInput.value;
+
+
+  /* ---------------------------------
+     VALIDAÇÃO
+  --------------------------------- */
+
+  if (!telefone || !senha) {
+
+    mostrarStatus(
+      "Preencha o número de telefone e a senha.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  telefone =
+    normalizarTelefone(
+      telefone
+    );
+
+
+  /*
+     Validação básica de Angola
+  */
+
+  if (
+    !/^\+2449\d{8}$/.test(telefone)
+  ) {
+
+    mostrarStatus(
+      "Digite um número de telefone angolano válido.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if (senha.length < 6) {
+
+    mostrarStatus(
+      "A senha deve ter pelo menos 6 caracteres.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const email =
+    gerarEmailDoTelefone(
+      telefone
+    );
+
+
+  /* ---------------------------------
+     BLOQUEAR BOTÃO
+  --------------------------------- */
+
+  btnEntrar.disabled = true;
+
+  btnEntrar.innerHTML =
+    '<i class="fas fa-spinner fa-spin"></i> Entrando...';
+
+
+  mostrarStatus(
+    "A verificar os seus dados...",
+    "loading"
+  );
+
+
+  try {
+
+    /* ---------------------------------
+       LOGIN FIREBASE AUTH
+    --------------------------------- */
+
+    const resultado =
+      await auth.signInWithEmailAndPassword(
+        email,
+        senha
+      );
+
+
+    const user =
+      resultado.user;
+
+
+    console.log(
+      "Utilizador autenticado:",
+      user.uid
+    );
+
+
+    /* ---------------------------------
+       GUARDAR DADOS DA SESSÃO
+    --------------------------------- */
+
+    sessionStorage.setItem(
+      "veltrix_uid",
+      user.uid
+    );
+
+    sessionStorage.setItem(
+      "veltrix_telefone",
+      telefone
+    );
+
+    sessionStorage.setItem(
+      "veltrix_email",
+      email
+    );
+
+
+    /*
+       Também guardamos no localStorage
+       para páginas que precisem recuperar
+       informações básicas da sessão.
+    */
+
+    localStorage.setItem(
+      "veltrix_uid",
+      user.uid
+    );
+
+    localStorage.setItem(
+      "veltrix_telefone",
+      telefone
+    );
+
+
+    /* ---------------------------------
+       ATUALIZAR ÚLTIMO LOGIN
+       NO REALTIME DATABASE
+    --------------------------------- */
+
+    try {
+
+      await database
+        .ref(
+          "usuarios/" +
+          user.uid
+        )
+        .update({
+
+          ultimoLogin:
+            firebase.database.ServerValue.TIMESTAMP,
+
+          telefone:
+            telefone,
+
+          email:
+            email
+
+        });
+
+    } catch (databaseError) {
+
+      /*
+         Se o Realtime Database estiver
+         com regras que impedem escrita,
+         o login continua funcionando.
+      */
+
+      console.warn(
+        "Não foi possível atualizar o perfil:",
+        databaseError
+      );
+
+    }
+
+
+    /* ---------------------------------
+       SUCESSO
+    --------------------------------- */
+
+    mostrarStatus(
+      "Login realizado com sucesso. A entrar...",
+      "success"
+    );
+
+
+    setTimeout(
+      function() {
+
+        window.location.href =
+          "tela.html";
+
+      },
+      700
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "Erro Firebase:",
+      error
+    );
+
+
+    let mensagem =
+      "Não foi possível entrar.";
+
+
+    switch (
+      error.code
+    ) {
+
+      case "auth/user-not-found":
+
+        mensagem =
+          "Esta conta não está cadastrada.";
+
+        break;
+
+
+      case "auth/wrong-password":
+
+        mensagem =
+          "Senha incorreta.";
+
+        break;
+
+
+      case "auth/invalid-login-credentials":
+
+        mensagem =
+          "Número de telefone ou senha incorretos.";
+
+        break;
+
+
+      case "auth/invalid-credential":
+
+        mensagem =
+          "Número de telefone ou senha incorretos.";
+
+        break;
+
+
+      case "auth/user-disabled":
+
+        mensagem =
+          "Esta conta foi desativada.";
+
+        break;
+
+
+      case "auth/too-many-requests":
+
+        mensagem =
+          "Muitas tentativas. Aguarde alguns minutos e tente novamente.";
+
+        break;
+
+
+      case "auth/network-request-failed":
+
+        mensagem =
+          "Erro de conexão. Verifique a sua internet.";
+
+        break;
+
+
+      case "auth/operation-not-allowed":
+
+        mensagem =
+          "O login por Email/Senha não está ativado no Firebase.";
+
+        break;
+
+
+      default:
+
+        mensagem =
+          error.message ||
+          mensagem;
+
+    }
+
+
+    mostrarStatus(
+      mensagem,
+      "error"
+    );
+
+
+  } finally {
+
+    btnEntrar.disabled = false;
+
+    btnEntrar.innerHTML =
+      "Entrar";
+
+  }
+
+}
+
+
+/* =====================================================
+   MOSTRAR / OCULTAR SENHA
+===================================================== */
+
+function mostrarSenha() {
+
+  const senha =
+    document.getElementById(
+      "senha"
+    );
+
+  const icon =
+    document.getElementById(
+      "eyeIcon"
+    );
+
+
+  if (
+    senha.type === "password"
+  ) {
+
+    senha.type = "text";
+
+    icon.classList.remove(
+      "fa-eye"
+    );
+
+    icon.classList.add(
+      "fa-eye-slash"
+    );
+
+  } else {
+
+    senha.type = "password";
+
+    icon.classList.remove(
+      "fa-eye-slash"
+    );
+
+    icon.classList.add(
+      "fa-eye"
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   IR PARA CADASTRO
+===================================================== */
+
+function irParaCadastro() {
+
+  /*
+     Altere apenas se o seu arquivo
+     de cadastro tiver outro nome.
+  */
+
+  window.location.href =
+    "login.index.html";
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function abrirWhatsApp() {
+
+  window.open(
+    "https://wa.me/244954809109",
+    "_blank"
+  );
+
+}
+
+
+/* =====================================================
+   ENTER NO TECLADO
+===================================================== */
+
+telefoneInput.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Enter"
+    ) {
+
+      senhaInput.focus();
+
+    }
+
+  }
+);
+
+
+senhaInput.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Enter"
+    ) {
+
+      entrar();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   VERIFICAR SESSÃO EXISTENTE
+===================================================== */
+
+auth.onAuthStateChanged(
+  function(user) {
+
+    if (user) {
+
+      console.log(
+        "Sessão Firebase ativa:",
+        user.uid
+      );
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>

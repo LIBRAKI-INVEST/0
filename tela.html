@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI-INVEST</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #1d4ed8;
+  --blue-dark: #123a9e;
+  --blue-light: #3b82f6;
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+  --bg: #f4f7fc;
+  --text: #172033;
+  --muted: #718096;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  min-height: 100vh;
+
+  padding-bottom: 105px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(59,130,246,.45),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #123a9e,
+      #1d4ed8 55%,
+      #2563eb
+    );
+
+  color: white;
+
+  padding: 30px 22px 75px;
+
+  border-radius:
+    0 0 32px 32px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(29,78,216,.22);
+}
+
+header::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.06);
+
+  right: -70px;
+  top: -70px;
+}
+
+header::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  left: -50px;
+  bottom: -50px;
+}
+
+.header-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 520px;
+
+  margin: auto;
+}
+
+.top-line {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+
+  margin-bottom: 28px;
+}
+
+.logo {
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  letter-spacing: -.5px;
+}
+
+.logo span {
+
+  color:
+    var(--gold-light);
+}
+
+.status {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  background:
+    rgba(255,255,255,.12);
+
+  border:
+    1px solid
+    rgba(255,255,255,.16);
+
+  padding:
+    7px 11px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.status-dot {
+
+  width: 7px;
+  height: 7px;
+
+  background: #4ade80;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 8px #4ade80;
+}
+
+header h1 {
+
+  font-size: 27px;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  margin-bottom: 8px;
+}
+
+header p {
+
+  font-size: 13px;
+
+  color: #dbeafe;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+  width:
+    calc(100% - 30px);
+
+  max-width: 520px;
+
+  margin: auto;
+}
+
+
+/* =========================
+   SALDO
+========================= */
+
+.saldo-card {
+
+  position: relative;
+
+  z-index: 5;
+
+  margin-top: -42px;
+
+  margin-bottom: 20px;
+
+  padding: 20px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,.96);
+
+  backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 12px 35px
+    rgba(15,23,42,.12);
+
+  border:
+    1px solid
+    rgba(255,255,255,.8);
+}
+
+.saldo-top {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+
+  margin-bottom: 14px;
+}
+
+.saldo-label {
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: var(--muted);
+}
+
+.wallet-icon {
+
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    #eff6ff;
+}
+
+.wallet-icon img {
+
+  width: 21px;
+}
+
+.saldo-valor {
+
+  color: var(--blue);
+
+  font-size: 27px;
+
+  font-weight: 800;
+
+  letter-spacing: -.8px;
+
+  margin-bottom: 18px;
+}
+
+.usuario {
+
+  border-top:
+    1px solid #edf0f5;
+
+  padding-top: 14px;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+}
+
+.telefone {
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.id {
+
+  font-size: 10px;
+
+  color: var(--muted);
+
+  margin-top: 4px;
+}
+
+.account-label {
+
+  font-size: 10px;
+
+  color: var(--muted);
+
+  text-align: right;
+}
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+.section-title {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+
+  margin:
+    25px 0 13px;
+}
+
+.section-title h2 {
+
+  font-size: 17px;
+
+  font-weight: 800;
+}
+
+.section-title span {
+
+  color: var(--blue);
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.action-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+.action-button {
+
+  min-height: 94px;
+
+  border-radius: 18px;
+
+  background: white;
+
+  border:
+    1px solid #e9edf5;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 12px 5px;
+
+  cursor: pointer;
+
+  transition: .25s ease;
+
+  box-shadow:
+    0 5px 15px
+    rgba(15,23,42,.05);
+}
+
+.action-button:hover {
+
+  transform:
+    translateY(-4px);
+
+  border-color:
+    #bfdbfe;
+
+  box-shadow:
+    0 10px 25px
+    rgba(29,78,216,.12);
+}
+
+.action-button:active {
+
+  transform:
+    scale(.96);
+}
+
+.action-icon {
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 13px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  margin-bottom: 8px;
+
+  box-shadow:
+    0 5px 12px
+    rgba(29,78,216,.2);
+}
+
+.action-icon img {
+
+  width: 21px;
+  height: 21px;
+}
+
+.action-button span {
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  color: #263248;
+
+  text-align: center;
+}
+
+
+/* =========================
+   INVESTIMENTO
+========================= */
+
+.invest-section {
+
+  margin-top: 27px;
+}
+
+.invest-title {
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  margin-bottom: 13px;
+}
+
+.pacotes-destaque {
+
+  width: 100%;
+}
+
+.pacote {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #fdfdfd
+    );
+
+  border-radius: 22px;
+
+  padding: 21px;
+
+  border:
+    1px solid #e7ebf2;
+
+  box-shadow:
+    0 10px 28px
+    rgba(15,23,42,.07);
+}
+
+.pacote::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(245,158,11,.08);
+
+  right: -45px;
+  top: -45px;
+}
+
+.pacote-header {
+
+  position: relative;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.pacote h3 {
+
+  color: #92400e;
+
+  font-size: 15px;
+
+  font-weight: 800;
+}
+
+.badge {
+
+  background: #fff7ed;
+
+  color: #d97706;
+
+  border:
+    1px solid #fed7aa;
+
+  padding:
+    5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+.linha {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  padding: 11px 0;
+
+  border-bottom:
+    1px solid #f0f2f5;
+
+  font-size: 12px;
+}
+
+.linha:last-of-type {
+
+  border-bottom: none;
+}
+
+.linha span:first-child {
+
+  color: var(--muted);
+}
+
+.linha span:last-child {
+
+  font-weight: 700;
+}
+
+.rendimento {
+
+  color:
+    #16a34a !important;
+}
+
+.pacote button {
+
+  width: 100%;
+
+  margin-top: 17px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f59e0b,
+      #d97706
+    );
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px
+    rgba(245,158,11,.25);
+
+  transition: .25s;
+}
+
+.pacote button:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 24px
+    rgba(245,158,11,.35);
+}
+
+.pacote button:active {
+
+  transform:
+    scale(.98);
+}
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+#mensagem {
+
+  min-height: 25px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  margin: 15px 0;
+
+  color: var(--blue);
+}
+
+
+/* =========================
+   MENU INFERIOR
+========================= */
+
+nav {
+
+  position: fixed;
+
+  z-index: 100;
+
+  bottom: 12px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  width:
+    calc(100% - 24px);
+
+  max-width: 500px;
+
+  height: 70px;
+
+  background:
+    rgba(15,48,125,.97);
+
+  backdrop-filter:
+    blur(15px);
+
+  border-radius: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-around;
+
+  padding: 7px;
+
+  box-shadow:
+    0 10px 35px
+    rgba(15,23,42,.25);
+}
+
+nav button {
+
+  position: relative;
+
+  border: none;
+
+  background: transparent;
+
+  color: #c7d7fa;
+
+  width: 31%;
+
+  height: 57px;
+
+  border-radius: 16px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  transition: .25s;
+}
+
+nav button img {
+
+  width: 20px;
+  height: 20px;
+
+  margin-bottom: 4px;
+
+  opacity: .8;
+}
+
+nav button.active {
+
+  background: white;
+
+  color: var(--blue);
+
+  box-shadow:
+    0 5px 15px
+    rgba(0,0,0,.15);
+}
+
+nav button.active img {
+
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(30%)
+    sepia(93%)
+    saturate(1500%)
+    hue-rotate(210deg)
+    brightness(80%);
+
+  opacity: 1;
+}
+
+nav button:hover:not(.active) {
+
+  background:
+    rgba(255,255,255,.08);
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+
+  opacity: .65;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 360px) {
+
+  header h1 {
+
+    font-size: 23px;
+  }
+
+  .action-grid {
+
+    gap: 7px;
+  }
+
+  .action-button {
+
+    min-height: 88px;
+  }
+
+  .action-button span {
+
+    font-size: 9px;
+  }
+
+  .saldo-valor {
+
+    font-size: 24px;
+  }
+
+}
+
+@media (min-width: 600px) {
+
+  .container {
+
+    max-width: 540px;
+  }
+
+  header {
+
+    padding-top: 40px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+  <div class="header-content">
+
+    <div class="top-line">
+
+      <div class="logo">
+        LIBRAKI <span>INVEST</span>
+      </div>
+
+      <div class="status">
+
+        <div class="status-dot"></div>
+
+        Conta ativa
+
+      </div>
+
+    </div>
+
+
+    <h1>
+      Bem-vindo LIBRAKI INVEST 
+    </h1>
+
+    <p>
+      Gerencie seus investimentos de forma simples e segura.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+
+  <!-- ===================================================
+       SALDO
+  ==================================================== -->
+
+  <div class="saldo-card">
+
+    <div class="saldo-top">
+
+      <div class="saldo-label">
+        SALDO DISPONÍVEL
+      </div>
+
+      <div class="wallet-icon">
+
+        <img
+          src="https://img.icons8.com/ios-filled/50/1d4ed8/wallet.png"
+          alt="Carteira"
+        >
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="saldo-valor"
+      id="userSaldo"
+    >
+      Kz 0,00
+    </div>
+
+
+    <div class="usuario">
+
+      <div>
+
+        <div
+          class="telefone"
+          id="userTelefone"
+        >
+          A carregar...
+        </div>
+
+        <div
+          class="id"
+          id="userId"
+        >
+          ID: ...
+        </div>
+
+      </div>
+
+
+      <div class="account-label">
+        CONTA LIBRAKI
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===================================================
+       AÇÕES
+  ==================================================== -->
+
+  <div class="section-title">
+
+    <h2>
+      Acesso rápido
+    </h2>
+
+    <span>
+      Serviços
+    </span>
+
+  </div>
+
+
+  <div class="action-grid">
+
+
+    <div
+      class="action-button"
+      onclick="location.href='deposito.html'"
+    >
+
+      <div class="action-icon">
+
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/money.png"
+          alt="Adicionar saldo"
+        >
+
+      </div>
+
+      <span>
+        Adicionar Saldo
+      </span>
+
+    </div>
+
+
+    <div
+      class="action-button"
+      onclick="location.href='retirada.html'"
+    >
+
+      <div class="action-icon">
+
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/receive-cash.png"
+          alt="Sacar"
+        >
+
+      </div>
+
+      <span>
+        Sacar Fundos
+      </span>
+
+    </div>
+
+
+    <div
+      class="action-button"
+      onclick="location.href='equipe.html'"
+    >
+
+      <div class="action-icon">
+
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/conference-call.png"
+          alt="Equipe"
+        >
+
+      </div>
+
+      <span>
+        Minha Equipe
+      </span>
+
+    </div>
+
+
+    <div
+      class="action-button"
+      onclick="location.href='invest.html'"
+    >
+
+      <div class="action-icon">
+
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/box.png"
+          alt="Produtos"
+        >
+
+      </div>
+
+      <span>
+        Produtos
+      </span>
+
+    </div>
+
+
+    <div
+      class="action-button"
+      onclick="abrirWhatsApp()"
+    >
+
+      <div class="action-icon">
+
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png"
+          alt="WhatsApp"
+        >
+
+      </div>
+
+      <span>
+        WhatsApp
+      </span>
+
+    </div>
+
+
+    <div
+      class="action-button"
+      onclick="abrirCanal()"
+    >
+
+      <div class="action-icon">
+
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/groups.png"
+          alt="Canal"
+        >
+
+      </div>
+
+      <span>
+        Canal WhatsApp
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+  <!-- ===================================================
+       PLANOS
+  ==================================================== -->
+
+  <section class="invest-section">
+
+    <div class="section-title">
+
+      <h2>
+        Planos em destaque
+      </h2>
+
+      <span>
+        Oportunidade
+      </span>
+
+    </div>
+
+
+    <div class="pacotes-destaque">
+
+      <div class="pacote">
+
+        <div class="pacote-header">
+
+          <h3>
+            PACOTE ESPECIAL
+          </h3>
+
+          <div class="badge">
+            DESTAQUE
+          </div>
+
+        </div>
+
+
+        <div class="linha">
+
+          <span>
+            Preço
+          </span>
+
+          <span>
+            10.000 KZ
+          </span>
+
+        </div>
+
+
+        <div class="linha">
+
+          <span>
+            Período
+          </span>
+
+          <span>
+            1 dia
+          </span>
+
+        </div>
+
+
+        <div class="linha">
+
+          <span>
+            Rendimento Total
+          </span>
+
+          <span class="rendimento">
+            13.000 KZ
+          </span>
+
+        </div>
+
+
+        <button
+          onclick="investirEspecial()"
+          id="btnInvestir"
+        >
+          INVESTIR AGORA
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div id="mensagem"></div>
+
+
+</main>
+
+
+<!-- =====================================================
+     MENU INFERIOR
+===================================================== -->
+
+<nav>
+
+
+  <button
+    class="active"
+    onclick="location.href='tela.html'"
+  >
+
+    <img
+      src="https://img.icons8.com/ios/50/ffffff/home.png"
+      alt="Home"
+    >
+
+    Home
+
+  </button>
+
+
+  <button
+    onclick="location.href='ativos.html'"
+  >
+
+    <img
+      src="https://img.icons8.com/ios/50/ffffff/combo-chart.png"
+      alt="Ativos"
+    >
+
+    Ativos
+
+  </button>
+
+
+  <button
+    onclick="logout()"
+  >
+
+    <img
+      src="https://img.icons8.com/ios/50/ffffff/shutdown.png"
+      alt="Sair"
+    >
+
+    Sair
+
+  </button>
+
+
+</nav>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+
+<script>
+
+/* =====================================================
+   CONFIGURAÇÃO FIREBASE
+   PREDITOR-LUCIFER
+===================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+  authDomain:
+    "preditor-lucifer.firebaseapp.com",
+
+  databaseURL:
+    "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+  projectId:
+    "preditor-lucifer",
+
+  storageBucket:
+    "preditor-lucifer.firebasestorage.app",
+
+  messagingSenderId:
+    "409997785375"
+
+};
+
+
+/* =====================================================
+   INICIALIZAR FIREBASE
+===================================================== */
+
+if (!firebase.apps.length) {
+
+  firebase.initializeApp(
+    firebaseConfig
+  );
+
+}
+
+
+const auth =
+  firebase.auth();
+
+
+const database =
+  firebase.database();
+
+
+/* =====================================================
+   ELEMENTOS
+===================================================== */
+
+const userSaldo =
+  document.getElementById(
+    "userSaldo"
+  );
+
+const userTelefone =
+  document.getElementById(
+    "userTelefone"
+  );
+
+const userId =
+  document.getElementById(
+    "userId"
+  );
+
+const mensagem =
+  document.getElementById(
+    "mensagem"
+  );
+
+const btnInvestir =
+  document.getElementById(
+    "btnInvestir"
+  );
+
+
+/* =====================================================
+   FORMATAR DINHEIRO
+===================================================== */
+
+function formatarKz(valor) {
+
+  const numero =
+    Number(valor || 0);
+
+  return (
+    "Kz " +
+    numero.toLocaleString(
+      "pt-AO",
+      {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }
+    )
+  );
+
+}
+
+
+/* =====================================================
+   CARREGAR DADOS DO UTILIZADOR
+===================================================== */
+
+function carregarUsuario(
+  user
+) {
+
+  if (!user) {
+
+    return;
+
+  }
+
+
+  const uid =
+    user.uid;
+
+
+  userId.innerText =
+    "ID: " +
+    uid.substring(
+      0,
+      8
+    );
+
+
+  userTelefone.innerText =
+    "A carregar...";
+
+
+  userSaldo.innerText =
+    "Kz 0,00";
+
+
+  /*
+     Caminho:
+
+     usuarios/
+        UID/
+           nome
+           telefone
+           saldo
+           ...
+  */
+
+  const usuarioRef =
+    database.ref(
+      "usuarios/" +
+      uid
+    );
+
+
+  /*
+     Listener em tempo real.
+
+     Se o saldo mudar no Firebase,
+     a página atualiza automaticamente.
+  */
+
+  usuarioRef.on(
+    "value",
+    function(snapshot) {
+
+      const data =
+        snapshot.val();
+
+
+      if (!data) {
+
+        userTelefone.innerText =
+          user.phoneNumber ||
+          "Telefone não encontrado";
+
+
+        userSaldo.innerText =
+          "Kz 0,00";
+
+
+        return;
+
+      }
+
+
+      userTelefone.innerText =
+        data.telefone ||
+        user.phoneNumber ||
+        "Telefone não informado";
+
+
+      userSaldo.innerText =
+        formatarKz(
+          data.saldo
+        );
+
+    },
+    function(error) {
+
+      console.error(
+        "Erro ao carregar usuário:",
+        error
+      );
+
+      mensagem.innerText =
+        "Não foi possível carregar os dados da conta.";
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   VERIFICAR AUTENTICAÇÃO
+===================================================== */
+
+auth.onAuthStateChanged(
+  function(user) {
+
+    if (user) {
+
+      console.log(
+        "Utilizador autenticado:",
+        user.uid
+      );
+
+
+      /*
+         Guarda novamente o UID
+         para outras páginas.
+      */
+
+      sessionStorage.setItem(
+        "veltrix_uid",
+        user.uid
+      );
+
+
+      localStorage.setItem(
+        "veltrix_uid",
+        user.uid
+      );
+
+
+      carregarUsuario(
+        user
+      );
+
+
+    } else {
+
+      /*
+         Não existe sessão.
+         Volta para o login.
+      */
+
+      window.location.replace(
+        "index.html"
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+async function logout() {
+
+  try {
+
+    await auth.signOut();
+
+
+    sessionStorage.removeItem(
+      "veltrix_uid"
+    );
+
+    sessionStorage.removeItem(
+      "veltrix_telefone"
+    );
+
+    sessionStorage.removeItem(
+      "veltrix_email"
+    );
+
+    sessionStorage.removeItem(
+      "veltrix_nome"
+    );
+
+
+    localStorage.removeItem(
+      "veltrix_uid"
+    );
+
+    localStorage.removeItem(
+      "veltrix_telefone"
+    );
+
+
+    window.location.replace(
+      "index.html"
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "Erro ao sair:",
+      error
+    );
+
+    alert(
+      "Não foi possível terminar a sessão."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   INVESTIMENTO ESPECIAL
+===================================================== */
+
+async function investirEspecial() {
+
+  const preco =
+    10000;
+
+  const dias =
+    1;
+
+  const rendimento =
+    13000;
+
+
+  const user =
+    auth.currentUser;
+
+
+  if (!user) {
+
+    mensagem.innerText =
+      "É necessário estar autenticado.";
+
+    return;
+
+  }
+
+
+  const uid =
+    user.uid;
+
+
+  btnInvestir.disabled =
+    true;
+
+
+  btnInvestir.innerText =
+    "A PROCESSAR...";
+
+
+  mensagem.innerText =
+    "A verificar o saldo...";
+
+
+  try {
+
+    /*
+       Transação no saldo para evitar
+       que duas operações simultâneas
+       gastem o mesmo saldo.
+    */
+
+    const saldoRef =
+      database.ref(
+        "usuarios/" +
+        uid +
+        "/saldo"
+      );
+
+
+    let saldoAnterior = 0;
+
+
+    const resultado =
+      await saldoRef.transaction(
+        function(saldoAtual) {
+
+          saldoAnterior =
+            Number(
+              saldoAtual || 0
+            );
+
+
+          if (
+            saldoAnterior <
+            preco
+          ) {
+
+            return;
+
+          }
+
+
+          return (
+            saldoAnterior -
+            preco
+          );
+
+        }
+      );
+
+
+    /*
+       Se a transação não foi concluída,
+       não criar investimento.
+    */
+
+    if (
+      !resultado.committed
+    ) {
+
+      throw new Error(
+        "Saldo insuficiente."
+      );
+
+    }
+
+
+    /*
+       Criar registro do investimento
+    */
+
+    const investimentoRef =
+      database
+        .ref(
+          "usuarios/" +
+          uid +
+          "/investimentos"
+        )
+        .push();
+
+
+    await investimentoRef.set({
+
+      id:
+        investimentoRef.key,
+
+      tipo:
+        "PACOTE ESPECIAL",
+
+      preco:
+        preco,
+
+      dias:
+        dias,
+
+      rendimento:
+        rendimento,
+
+      inicio:
+        firebase.database
+          .ServerValue
+          .TIMESTAMP,
+
+      status:
+        "ativo"
+
+    });
+
+
+    /*
+       Atualizar mensagem
+    */
+
+    mensagem.innerText =
+      "Investimento realizado com sucesso.";
+
+
+    /*
+       O listener do saldo
+       atualizará automaticamente
+       o valor mostrado na tela.
+    */
+
+
+  } catch (error) {
+
+    console.error(
+      "Erro no investimento:",
+      error
+    );
+
+
+    /*
+       Caso o erro tenha ocorrido
+       depois da retirada do saldo,
+       o investimento pode precisar
+       de tratamento administrativo.
+    */
+
+    if (
+      error.message ===
+      "Saldo insuficiente."
+    ) {
+
+      mensagem.innerText =
+        "Saldo insuficiente para este investimento.";
+
+    } else {
+
+      mensagem.innerText =
+        "Não foi possível concluir o investimento. Tente novamente.";
+
+    }
+
+  } finally {
+
+    btnInvestir.disabled =
+      false;
+
+    btnInvestir.innerText =
+      "INVESTIR AGORA";
+
+  }
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function abrirWhatsApp() {
+
+  window.open(
+    "https://chat.whatsapp.com/CTFnlS9WgX37ZU2DqZM9Dl?s=cl&p=a&ilr=4"
+  );
+
+}
+
+
+/* =====================================================
+   CANAL WHATSAPP
+===================================================== */
+
+function abrirCanal() {
+
+  window.open(
+    "https://whatsapp.com/channel/0029Vb8syb5JENy8asCKIp2N"
+  );
+
+}
+
+</script>
+
+</body>
+</html>

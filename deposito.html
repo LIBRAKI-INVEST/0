@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI-INVEST</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --blue: #1d4ed8;
+    --blue-dark: #123a9e;
+    --blue-light: #3b82f6;
+
+    --gold: #f59e0b;
+    --gold-light: #fbbf24;
+
+    --green: #16a34a;
+    --red: #dc2626;
+
+    --text: #172033;
+    --muted: #718096;
+
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(59,130,246,.10),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #eef4ff,
+            #f8fafc
+        );
+
+    min-height: 100vh;
+    color: var(--text);
+    padding-bottom: 35px;
+
+    animation: pageIn .45s ease;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(59,130,246,.45),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #123a9e,
+            #1d4ed8 55%,
+            #2563eb
+        );
+
+    color: white;
+
+    padding:
+        25px
+        20px
+        38px;
+
+    border-radius:
+        0
+        0
+        30px
+        30px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(29,78,216,.20);
+}
+
+header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.06);
+
+    right: -70px;
+    top: -80px;
+}
+
+header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.05);
+
+    left: -45px;
+    bottom: -55px;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 520px;
+    margin: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 24px;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    width: 37px;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,.14);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius: 11px;
+}
+
+.logo-icon i {
+    color: var(--gold-light);
+    font-size: 16px;
+}
+
+.logo span {
+    color: var(--gold-light);
+}
+
+header h1 {
+    font-size: 26px;
+    font-weight: 800;
+
+    margin-bottom: 7px;
+
+    letter-spacing: -.5px;
+}
+
+header p {
+    color: #dbeafe;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+    width: calc(100% - 30px);
+    max-width: 520px;
+
+    margin:
+        -20px auto 0;
+
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+    background:
+        rgba(255,255,255,.98);
+
+    border:
+        1px solid #e6eaf1;
+
+    border-radius: 21px;
+
+    padding: 19px;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 7px 22px
+        rgba(15,23,42,.06);
+
+    animation:
+        cardIn .4s ease;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card h3 {
+    font-size: 15px;
+    font-weight: 800;
+
+    color: var(--text);
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================
+   PAGAMENTO
+========================================= */
+
+.info-pagamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.info-pagamento::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(59,130,246,.04);
+
+    right: -35px;
+    top: -40px;
+}
+
+.info-dados {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.info-dados h3 {
+    margin-bottom: 3px;
+}
+
+.payment-row {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.payment-row i {
+    color: var(--blue);
+    width: 15px;
+}
+
+.payment-row strong {
+    color: var(--text);
+    font-size: 13px;
+}
+
+.info-pagamento img {
+    position: relative;
+    z-index: 2;
+
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+
+    padding: 7px;
+}
+
+
+/* =========================================
+   INSTRUÇÕES
+========================================= */
+
+.instrucoes {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    counter-reset: steps;
+}
+
+.instrucoes li {
+    position: relative;
+
+    padding-left: 42px;
+
+    margin-bottom: 19px;
+
+    color: #4b5563;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    font-weight: 500;
+}
+
+.instrucoes li:last-child {
+    margin-bottom: 0;
+}
+
+.instrucoes li::before {
+    counter-increment: steps;
+
+    content: counter(steps);
+
+    position: absolute;
+
+    left: 0;
+    top: -2px;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    box-shadow:
+        0 4px 10px
+        rgba(29,78,216,.18);
+}
+
+.instrucoes li::after {
+    content: "";
+
+    position: absolute;
+
+    left: 13px;
+    top: 26px;
+
+    width: 2px;
+
+    height: calc(100% - 9px);
+
+    background: #dbeafe;
+}
+
+.instrucoes li:last-child::after {
+    display: none;
+}
+
+.instrucoes strong {
+    color: var(--blue);
+    font-weight: 800;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+.form-label {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 16px;
+    margin-bottom: 7px;
+
+    color: #4b5563;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.form-label:first-child {
+    margin-top: 0;
+}
+
+.form-label i {
+    color: var(--blue);
+    font-size: 12px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper > i {
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color: var(--blue);
+
+    font-size: 14px;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+input[type="number"],
+input[type="file"] {
+    width: 100%;
+
+    padding:
+        13px
+        13px
+        13px
+        39px;
+
+    border:
+        1px solid #dce3ef;
+
+    border-radius: 13px;
+
+    background: #f8fafc;
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    outline: none;
+
+    transition: .2s;
+}
+
+input[type="file"] {
+    cursor: pointer;
+}
+
+input:focus {
+    border-color: var(--blue);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37,99,235,.08);
+}
+
+input::placeholder {
+    color: #9aa5b5;
+}
+
+
+/* =========================================
+   AVISO DO COMPROVATIVO
+========================================= */
+
+.aviso-comprovativo {
+    margin-top: 8px;
+
+    padding: 9px 10px;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    line-height: 1.45;
+}
+
+.aviso-comprovativo i {
+    color: var(--blue);
+    margin-right: 4px;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin-top: 17px;
+}
+
+button {
+    width: 100%;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    border-radius: 13px;
+
+    padding: 14px;
+
+    transition:
+        transform .2s,
+        box-shadow .2s,
+        background .2s;
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+button:disabled {
+    opacity: .65;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+}
+
+.enviar {
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    color: white;
+
+    box-shadow:
+        0 6px 15px
+        rgba(29,78,216,.20);
+}
+
+.enviar:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 9px 20px
+        rgba(29,78,216,.27);
+}
+
+.historico {
+    background: #eff6ff;
+
+    color: var(--blue);
+
+    border:
+        1px solid #dbeafe;
+}
+
+.historico:hover {
+    background: #dbeafe;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   MENSAGEM
+========================================= */
+
+.mensagem {
+    margin-top: 13px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    font-weight: 700;
+
+    display: none;
+}
+
+.mensagem.sucesso {
+    display: block;
+
+    color: #15803d;
+
+    background: #dcfce7;
+
+    border:
+        1px solid #bbf7d0;
+}
+
+.mensagem.erro {
+    display: block;
+
+    color: #b91c1c;
+
+    background: #fee2e2;
+
+    border:
+        1px solid #fecaca;
+}
+
+.mensagem.info {
+    display: block;
+
+    color: #1d4ed8;
+
+    background: #eff6ff;
+
+    border:
+        1px solid #dbeafe;
+}
+
+
+/* =========================================
+   PROGRESSO
+========================================= */
+
+#progressoContainer {
+    display: none;
+
+    margin-top: 12px;
+}
+
+.progresso-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 6px;
+
+    font-size: 10px;
+
+    color: #64748b;
+
+    font-weight: 700;
+}
+
+#progressoPorcentagem {
+    color: var(--blue);
+    font-weight: 800;
+}
+
+.progresso-barra {
+    width: 100%;
+
+    height: 7px;
+
+    background: #e5e7eb;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+#progressoBarra {
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    border-radius: 20px;
+
+    transition: width .2s ease;
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+#estadoLogin {
+    margin-top: 10px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #64748b;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+
+    padding:
+        5px
+        20px
+        20px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    letter-spacing: .2px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .info-pagamento img {
+        width: 55px;
+        height: 55px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-content">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            LIBRAKI <span>INVEST</span>
+
+        </div>
+
+
+        <h1>
+            Adicionar Saldo
+        </h1>
+
+
+        <p>
+            Crie um pedido de depósito de forma
+            rápida e segura.
+        </p>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================================
+     INFORMAÇÕES DE PAGAMENTO
+========================================= -->
+
+<div class="card info-pagamento">
+
+    <div class="info-dados">
+
+        <h3>
+            Informações de Pagamento
+        </h3>
+
+
+        <div class="payment-row">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            <span>
+                Entidade:
+            </span>
+
+            <strong>
+                10116
+            </strong>
+
+        </div>
+
+
+        <div class="payment-row">
+
+            <i class="fa-solid fa-hashtag"></i>
+
+            <span>
+                Referência:
+            </span>
+
+            <strong>
+                954809109
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <img
+        src="multicaixa.png"
+        alt="Multicaixa Express"
+    >
+
+</div>
+
+
+<!-- =========================================
+     INSTRUÇÕES
+========================================= -->
+
+<div class="card">
+
+    <h3>
+        Como fazer o depósito
+    </h3>
+
+
+    <ul class="instrucoes">
+
+        <li>
+            Abra o aplicativo
+            <strong>Multicaixa Express</strong>.
+        </li>
+
+
+        <li>
+            Acesse
+            <strong>
+                "Pagamento por referência"
+            </strong>.
+        </li>
+
+
+        <li>
+            Informe a entidade:
+            <strong>10116</strong>.
+        </li>
+
+
+        <li>
+            Informe a referência:
+            <strong>"954809109"</strong>.
+        </li>
+
+
+        <li>
+            O valor mínimo é de
+            <strong>5.000 KZ</strong>.
+        </li>
+
+
+        <li>
+            Confirme o pagamento no aplicativo.
+        </li>
+
+
+        <li>
+            Guarde o comprovativo do pagamento
+            para sua referência.
+        </li>
+
+
+        <li>
+            Envie o pedido através do formulário
+            abaixo.
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- =========================================
+     FORMULÁRIO
+========================================= -->
+
+<div class="card">
+
+    <h3>
+        Solicitar depósito
+    </h3>
+
+
+    <!-- VALOR -->
+
+    <label class="form-label">
+
+        <i class="fa-solid fa-money-bill-wave"></i>
+
+        Valor do depósito (KZ)
+
+    </label>
+
+
+    <div class="input-wrapper">
+
+        <i class="fa-solid fa-coins"></i>
+
+        <input
+            type="number"
+            id="valor"
+            min="5000"
+            step="1"
+            inputmode="numeric"
+            placeholder="Ex: 5000"
+        >
+
+    </div>
+
+
+    <!-- COMPROVATIVO VISUAL -->
+
+    <label class="form-label">
+
+        <i class="fa-solid fa-image"></i>
+
+        Comprovativo
+
+    </label>
+
+
+    <div class="input-wrapper">
+
+        <i class="fa-solid fa-upload"></i>
+
+        <input
+            type="file"
+            id="comprovativo"
+            accept="image/jpeg,image/png,image/webp,image/jpg"
+        >
+
+    </div>
+
+
+    <div class="aviso-comprovativo">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        A seleção da imagem é opcional nesta página.
+        O pedido enviado ao sistema contém apenas
+        os dados do depósito; a imagem não é enviada
+        nem armazenada.
+
+    </div>
+
+
+    <!-- PROGRESSO -->
+
+    <div id="progressoContainer">
+
+        <div class="progresso-info">
+
+            <span id="progressoTexto">
+                Preparando pedido...
+            </span>
+
+            <span id="progressoPorcentagem">
+                0%
+            </span>
+
+        </div>
+
+
+        <div class="progresso-barra">
+
+            <div id="progressoBarra"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOTÕES -->
+
+    <div class="button-group">
+
+        <button
+            class="enviar"
+            id="btnEnviar"
+            type="button"
+        >
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            &nbsp;
+
+            Enviar Pedido
+
+        </button>
+
+
+        <button
+            class="historico"
+            id="btnHistorico"
+            type="button"
+        >
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            &nbsp;
+
+            Ver Histórico
+
+        </button>
+
+    </div>
+
+
+    <!-- MENSAGEM -->
+
+    <div
+        class="mensagem"
+        id="mensagem"
+    ></div>
+
+
+    <!-- LOGIN -->
+
+    <div id="estadoLogin">
+        Verificando sessão...
+    </div>
+
+</div>
+
+</main>
+
+
+<footer>
+
+    LIBRAKI INVEST © 2026
+
+</footer>
+
+
+
+<!-- =========================================
+     FIREBASE SDK
+     
+     NÃO É NECESSÁRIO FIREBASE STORAGE
+========================================= -->
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+
+<script>
+
+/* ==================================================
+   CONFIGURAÇÃO FIREBASE
+================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+    authDomain:
+        "preditor-lucifer.firebaseapp.com",
+
+    databaseURL:
+        "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+    projectId:
+        "preditor-lucifer",
+
+    storageBucket:
+        "preditor-lucifer.firebasestorage.app",
+
+    messagingSenderId:
+        "409997785375",
+
+    appId:
+        "1:409997785375:android:d4c28097f018e30ae5182a"
+
+};
+
+
+/* ==================================================
+   INICIALIZAR
+================================================== */
+
+if (!firebase.apps.length) {
+
+    firebase.initializeApp(
+        firebaseConfig
+    );
+
+}
+
+
+/* ==================================================
+   REFERÊNCIAS
+================================================== */
+
+const auth =
+    firebase.auth();
+
+const database =
+    firebase.database();
+
+
+/* ==================================================
+   ELEMENTOS
+================================================== */
+
+const mensagemEl =
+    document.getElementById(
+        "mensagem"
+    );
+
+const btnEnviar =
+    document.getElementById(
+        "btnEnviar"
+    );
+
+const btnHistorico =
+    document.getElementById(
+        "btnHistorico"
+    );
+
+const valorInput =
+    document.getElementById(
+        "valor"
+    );
+
+const arquivoInput =
+    document.getElementById(
+        "comprovativo"
+    );
+
+const estadoLogin =
+    document.getElementById(
+        "estadoLogin"
+    );
+
+const progressoContainer =
+    document.getElementById(
+        "progressoContainer"
+    );
+
+const progressoBarra =
+    document.getElementById(
+        "progressoBarra"
+    );
+
+const progressoPorcentagem =
+    document.getElementById(
+        "progressoPorcentagem"
+    );
+
+const progressoTexto =
+    document.getElementById(
+        "progressoTexto"
+    );
+
+
+/* ==================================================
+   MENSAGEM
+================================================== */
+
+function mostrarMensagem(
+    texto,
+    tipo
+) {
+
+    mensagemEl.innerText =
+        texto;
+
+    mensagemEl.className =
+        "mensagem " +
+        tipo;
+
+}
+
+
+/* ==================================================
+   PROGRESSO
+================================================== */
+
+function atualizarProgresso(
+    percentual,
+    texto
+) {
+
+    const valor =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                Math.round(
+                    percentual
+                )
+            )
+        );
+
+
+    progressoContainer.style.display =
+        "block";
+
+
+    progressoBarra.style.width =
+        valor + "%";
+
+
+    progressoPorcentagem.innerText =
+        valor + "%";
+
+
+    progressoTexto.innerText =
+        texto;
+
+}
+
+
+/* ==================================================
+   RESETAR PROGRESSO
+================================================== */
+
+function resetarProgresso() {
+
+    progressoContainer.style.display =
+        "none";
+
+    progressoBarra.style.width =
+        "0%";
+
+    progressoPorcentagem.innerText =
+        "0%";
+
+    progressoTexto.innerText =
+        "Preparando pedido...";
+
+}
+
+
+/* ==================================================
+   AGUARDAR AUTENTICAÇÃO
+================================================== */
+
+function esperarUsuario() {
+
+    return new Promise(
+        function(resolve) {
+
+            const usuarioAtual =
+                auth.currentUser;
+
+
+            if (usuarioAtual) {
+
+                resolve(
+                    usuarioAtual
+                );
+
+                return;
+
+            }
+
+
+            const unsubscribe =
+                auth.onAuthStateChanged(
+                    function(user) {
+
+                        unsubscribe();
+
+                        resolve(user);
+
+                    }
+                );
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   ESTADO DE LOGIN
+================================================== */
+
+auth.onAuthStateChanged(
+    function(user) {
+
+        if (user) {
+
+            estadoLogin.innerHTML =
+                '<i class="fa-solid fa-circle-check"></i> Sessão autenticada';
+
+            estadoLogin.style.color =
+                "#16a34a";
+
+        }
+
+        else {
+
+            estadoLogin.innerHTML =
+                '<i class="fa-solid fa-circle-xmark"></i> Sessão não autenticada';
+
+            estadoLogin.style.color =
+                "#dc2626";
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   HISTÓRICO
+================================================== */
+
+btnHistorico.addEventListener(
+    "click",
+    function() {
+
+        window.location.href =
+            "registros.html";
+
+    }
+);
+
+
+/* ==================================================
+   CRIAR PEDIDO
+================================================== */
+
+async function criarPedido() {
+
+    try {
+
+        /* ==========================================
+           LOGIN
+        ========================================== */
+
+        mostrarMensagem(
+            "Verificando a sua sessão...",
+            "info"
+        );
+
+
+        const user =
+            await esperarUsuario();
+
+
+        if (!user) {
+
+            mostrarMensagem(
+                "❌ A sua sessão não está autenticada. Faça login novamente.",
+                "erro"
+            );
+
+            return;
+
+        }
+
+
+        /* ==========================================
+           VALOR
+        ========================================== */
+
+        const valor =
+            Number(
+                valorInput.value
+            );
+
+
+        if (
+            !Number.isFinite(valor) ||
+            valor < 5000
+        ) {
+
+            mostrarMensagem(
+                "❌ O valor mínimo para depósito é KZ 5.000.",
+                "erro"
+            );
+
+            valorInput.focus();
+
+            return;
+
+        }
+
+
+        /* ==========================================
+           BLOQUEAR
+        ========================================== */
+
+        btnEnviar.disabled =
+            true;
+
+        btnHistorico.disabled =
+            true;
+
+        valorInput.disabled =
+            true;
+
+        arquivoInput.disabled =
+            true;
+
+
+        btnEnviar.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Processando...';
+
+
+        atualizarProgresso(
+            20,
+            "Preparando pedido..."
+        );
+
+
+        /* ==========================================
+           DADOS DO USUÁRIO
+        ========================================== */
+
+        const userRef =
+            database.ref(
+                "usuarios/" +
+                user.uid
+            );
+
+
+        const userSnapshot =
+            await userRef.once(
+                "value"
+            );
+
+
+        const userData =
+            userSnapshot.val() || {};
+
+
+        const nome =
+            userData.nome ||
+            userData.nomeCompleto ||
+            user.displayName ||
+            "Usuário";
+
+
+        const saldoAtual =
+            Number(
+                userData.saldo || 0
+            );
+
+
+        atualizarProgresso(
+            45,
+            "Gerando ID do pedido..."
+        );
+
+
+        /* ==========================================
+           GERAR ID ÚNICO
+        ========================================== */
+
+        const pedidoRef =
+            database.ref(
+                "depositosPendentes/" +
+                user.uid
+            ).push();
+
+
+        const pedidoId =
+            pedidoRef.key;
+
+
+        /* ==========================================
+           DATA
+        ========================================== */
+
+        const agora =
+            new Date();
+
+
+        /* ==========================================
+           OBJETO DO PEDIDO
+        ========================================== */
+
+        const pedido = {
+
+            id:
+                pedidoId,
+
+            userId:
+                user.uid,
+
+            email:
+                user.email || "",
+
+            nome:
+                nome,
+
+            valor:
+                valor,
+
+            saldoAtual:
+                saldoAtual,
+
+            status:
+                "pendente",
+
+            entidade:
+                "10116",
+
+            referencia:
+                "953195440",
+
+            tipo:
+                "pedido_deposito",
+
+            comprovativoEnviado:
+                false,
+
+            comprovativoArmazenado:
+                false,
+
+            data:
+                agora.toISOString(),
+
+            timestamp:
+                firebase.database.ServerValue.TIMESTAMP
+
+        };
+
+
+        atualizarProgresso(
+            70,
+            "Registrando pedido no Firebase..."
+        );
+
+
+        /* ==========================================
+           SALVAR
+        ========================================== */
+
+        await pedidoRef.set(
+            pedido
+        );
+
+
+        atualizarProgresso(
+            100,
+            "Pedido criado com sucesso!"
+        );
+
+
+        /* ==========================================
+           RESULTADO
+        ========================================== */
+
+        mostrarMensagem(
+            "✅ Pedido criado com sucesso! ID: " +
+            pedidoId,
+            "sucesso"
+        );
+
+
+        btnEnviar.innerHTML =
+            '<i class="fa-solid fa-circle-check"></i> Pedido enviado';
+
+
+        valorInput.value =
+            "";
+
+        arquivoInput.value =
+            "";
+
+
+        console.log(
+            "Pedido criado:",
+            pedido
+        );
+
+
+        /*
+         * Restaurar botão depois
+         */
+
+        setTimeout(
+            function() {
+
+                btnEnviar.disabled =
+                    false;
+
+                btnHistorico.disabled =
+                    false;
+
+                valorInput.disabled =
+                    false;
+
+                arquivoInput.disabled =
+                    false;
+
+                btnEnviar.innerHTML =
+                    '<i class="fa-solid fa-paper-plane"></i> &nbsp; Enviar Pedido';
+
+                resetarProgresso();
+
+            },
+            3000
+        );
+
+
+    }
+
+    catch (erro) {
+
+        console.error(
+            "Erro ao criar pedido:",
+            erro
+        );
+
+
+        let mensagem =
+            "❌ Não foi possível criar o pedido.";
+
+
+        const codigo =
+            erro &&
+            erro.code
+                ? erro.code
+                : "";
+
+
+        if (
+            codigo ===
+            "PERMISSION_DENIED"
+        ) {
+
+            mensagem =
+                "❌ O Firebase recusou o pedido. Verifique as regras do Realtime Database.";
+
+        }
+
+        else if (
+            codigo ===
+            "database/permission-denied"
+        ) {
+
+            mensagem =
+                "❌ Sem permissão para criar pedidos no Firebase.";
+
+        }
+
+        else if (
+            codigo ===
+            "auth/network-request-failed"
+        ) {
+
+            mensagem =
+                "❌ Não foi possível conectar ao Firebase. Verifique a Internet.";
+
+        }
+
+        else if (
+            erro &&
+            erro.message
+        ) {
+
+            mensagem =
+                "❌ Erro: " +
+                erro.message;
+
+        }
+
+
+        mostrarMensagem(
+            mensagem,
+            "erro"
+        );
+
+
+        resetarProgresso();
+
+
+        btnEnviar.disabled =
+            false;
+
+        btnHistorico.disabled =
+            false;
+
+        valorInput.disabled =
+            false;
+
+        arquivoInput.disabled =
+            false;
+
+
+        btnEnviar.innerHTML =
+            '<i class="fa-solid fa-paper-plane"></i> &nbsp; Enviar Pedido';
+
+    }
+
+}
+
+
+/* ==================================================
+   BOTÃO ENVIAR
+================================================== */
+
+btnEnviar.addEventListener(
+    "click",
+    criarPedido
+);
+
+
+/* ==================================================
+   ENTER NO VALOR
+================================================== */
+
+valorInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            event.preventDefault();
+
+            criarPedido();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   CAMPO DE IMAGEM
+   APENAS VISUAL
+================================================== */
+
+arquivoInput.addEventListener(
+    "change",
+    function() {
+
+        const arquivo =
+            arquivoInput.files &&
+            arquivoInput.files[0];
+
+
+        if (!arquivo) {
+
+            return;
+
+        }
+
+
+        const tamanhoMB =
+            (
+                arquivo.size /
+                (1024 * 1024)
+            ).toFixed(2);
+
+
+        mostrarMensagem(
+            "📷 " +
+            arquivo.name +
+            " selecionado (" +
+            tamanhoMB +
+            " MB). A imagem não será enviada.",
+            "info"
+        );
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

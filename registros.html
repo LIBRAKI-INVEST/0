@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI-INVEST</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+
+  --blue: #1d4ed8;
+  --blue-dark: #123a9e;
+  --blue-light: #3b82f6;
+
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+
+  --green: #16a34a;
+  --green-bg: #ecfdf5;
+
+  --orange: #d97706;
+  --orange-bg: #fffbeb;
+
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+
+  --text: #172033;
+  --muted: #718096;
+
+  --white: #ffffff;
+}
+
+body {
+
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59,130,246,.10),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff,
+      #f8fafc
+    );
+
+  min-height: 100vh;
+
+  color: var(--text);
+
+  padding-bottom: 35px;
+
+  animation: pageIn .45s ease;
+}
+
+@keyframes pageIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+header {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59,130,246,.45),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #123a9e,
+      #1d4ed8 55%,
+      #2563eb
+    );
+
+  color: white;
+
+  padding:
+    23px
+    20px
+    35px;
+
+  border-radius:
+    0
+    0
+    30px
+    30px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(29,78,216,.20);
+}
+
+header::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.06);
+
+  right: -70px;
+  top: -80px;
+}
+
+header::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  left: -45px;
+  bottom: -55px;
+}
+
+.header-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 520px;
+
+  margin: auto;
+}
+
+.logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 22px;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+.logo-icon {
+
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,.14);
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  border-radius: 11px;
+}
+
+.logo-icon i {
+
+  color:
+    var(--gold-light);
+
+  font-size: 16px;
+}
+
+.logo span {
+
+  color:
+    var(--gold-light);
+}
+
+header h1 {
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  letter-spacing: -.5px;
+
+  margin-bottom: 7px;
+}
+
+header p {
+
+  color:
+    #dbeafe;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+main {
+
+  width:
+    calc(100% - 30px);
+
+  max-width: 520px;
+
+  margin:
+    -18px auto 0;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+.resumo-card {
+
+  background:
+    rgba(255,255,255,.98);
+
+  border:
+    1px solid #e6eaf1;
+
+  border-radius: 20px;
+
+  padding: 17px;
+
+  margin-bottom: 15px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.06);
+}
+
+.resumo-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  margin-bottom: 13px;
+}
+
+.resumo-title i {
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  border-radius: 10px;
+
+  font-size: 14px;
+}
+
+.resumo-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 8px;
+}
+
+.resumo-item {
+
+  background:
+    #f8fafc;
+
+  border:
+    1px solid #edf0f5;
+
+  border-radius: 12px;
+
+  padding: 10px 5px;
+
+  text-align: center;
+}
+
+.resumo-item i {
+
+  display: block;
+
+  color:
+    var(--blue);
+
+  font-size: 13px;
+
+  margin-bottom: 5px;
+}
+
+.resumo-item span {
+
+  display: block;
+
+  color:
+    var(--muted);
+
+  font-size: 8px;
+
+  margin-bottom: 3px;
+}
+
+.resumo-item strong {
+
+  font-size: 12px;
+
+  color:
+    var(--text);
+}
+
+.lista-card {
+
+  background:
+    rgba(255,255,255,.98);
+
+  border:
+    1px solid #e6eaf1;
+
+  border-radius: 20px;
+
+  padding: 17px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.06);
+}
+
+.lista-header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.lista-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+.lista-title i {
+
+  color:
+    var(--blue);
+}
+
+.item {
+
+  position: relative;
+
+  background:
+    #ffffff;
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius: 17px;
+
+  padding: 15px;
+
+  margin-bottom: 11px;
+
+  overflow: hidden;
+
+  transition:
+    transform .2s,
+    box-shadow .2s;
+}
+
+.item:last-child {
+
+  margin-bottom: 0;
+}
+
+.item:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(15,23,42,.07);
+}
+
+.item::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+.item-top {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 13px;
+}
+
+.valor {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  color:
+    var(--text);
+}
+
+.valor i {
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  font-size: 13px;
+}
+
+.status {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding:
+    6px 9px;
+
+  border-radius:
+    20px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  white-space:
+    nowrap;
+
+  text-transform: capitalize;
+}
+
+.status i {
+
+  font-size: 9px;
+}
+
+.aprovado {
+
+  background:
+    var(--green-bg);
+
+  color:
+    var(--green);
+}
+
+.pendente {
+
+  background:
+    var(--orange-bg);
+
+  color:
+    var(--orange);
+}
+
+.rejeitado {
+
+  background:
+    var(--red-bg);
+
+  color:
+    var(--red);
+}
+
+.item-body {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  padding-top: 11px;
+
+  border-top:
+    1px solid #f0f2f6;
+}
+
+.item-info {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  background:
+    #f8fafc;
+
+  border-radius: 9px;
+
+  padding:
+    7px 9px;
+
+  color:
+    var(--muted);
+
+  font-size: 9px;
+
+  max-width: 100%;
+
+  overflow: hidden;
+}
+
+.item-info i {
+
+  color:
+    var(--blue);
+
+  font-size: 10px;
+
+  flex-shrink: 0;
+}
+
+.id-usuario {
+
+  word-break: break-all;
+}
+
+.link-comprovativo {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    .2s;
+}
+
+.link-comprovativo:hover {
+
+  background:
+    #dbeafe;
+}
+
+.sem-resultados {
+
+  text-align: center;
+
+  padding:
+    45px 20px;
+
+  color:
+    var(--muted);
+
+  font-size: 11px;
+}
+
+.sem-resultados-icon {
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin:
+    0 auto 12px;
+
+  border-radius: 50%;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  font-size: 20px;
+}
+
+footer {
+
+  text-align: center;
+
+  color:
+    #94a3b8;
+
+  font-size: 9px;
+
+  padding:
+    18px 20px;
+}
+
+@media (max-width: 380px) {
+
+  main {
+
+    width:
+      calc(100% - 22px);
+  }
+
+  .resumo-grid {
+
+    gap: 5px;
+  }
+
+  .valor {
+
+    font-size: 15px;
+  }
+
+  .status {
+
+    font-size: 7px;
+
+    padding:
+      5px 7px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-content">
+
+    <div class="logo">
+
+      <div class="logo-icon">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+      </div>
+
+      LIBRAKI <span>INVEST</span>
+
+    </div>
+
+    <h1>
+      Histórico de Depósitos
+    </h1>
+
+    <p>
+      Consulte os seus depósitos,
+      valores, datas e estados de processamento.
+    </p>
+
+  </div>
+
+</header>
+
+<main>
+
+  <div class="resumo-card">
+
+    <div class="resumo-title">
+
+      <i class="fa-solid fa-wallet"></i>
+
+      Resumo dos depósitos
+
+    </div>
+
+    <div class="resumo-grid">
+
+      <div class="resumo-item">
+
+        <i class="fa-solid fa-list"></i>
+
+        <span>Total</span>
+
+        <strong id="totalDepositos">
+          0
+        </strong>
+
+      </div>
+
+      <div class="resumo-item">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span>Aprovados</span>
+
+        <strong id="totalAprovados">
+          0
+        </strong>
+
+      </div>
+
+      <div class="resumo-item">
+
+        <i class="fa-solid fa-clock"></i>
+
+        <span>Pendentes</span>
+
+        <strong id="totalPendentes">
+          0
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="lista-card">
+
+    <div class="lista-header">
+
+      <div class="lista-title">
+
+        <i class="fa-solid fa-clock-rotate-left"></i>
+
+        Seus depósitos
+
+      </div>
+
+    </div>
+
+    <div id="depositosPendentes">
+
+      <div class="sem-resultados">
+
+        <div class="sem-resultados-icon">
+
+          <i class="fa-solid fa-spinner fa-spin"></i>
+
+        </div>
+
+        Carregando histórico...
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+
+  LIBRAKI-INVEST © 2026
+
+</footer>
+
+<script>
+
+/* ==================================================
+   FIREBASE
+================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+  authDomain:
+    "preditor-lucifer.firebaseapp.com",
+
+  databaseURL:
+    "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+  projectId:
+    "preditor-lucifer",
+
+  storageBucket:
+    "preditor-lucifer.firebasestorage.app",
+
+  messagingSenderId:
+    "409997785375",
+
+  appId:
+    "1:409997785375:web:d4c28097f018e30ae5182a"
+
+};
+
+
+/* ==================================================
+   INICIALIZAÇÃO
+================================================== */
+
+if (!firebase.apps.length) {
+
+  firebase.initializeApp(
+    firebaseConfig
+  );
+
+}
+
+const auth =
+  firebase.auth();
+
+const db =
+  firebase.database();
+
+
+/* ==================================================
+   ELEMENTOS
+================================================== */
+
+const container =
+  document.getElementById(
+    "depositosPendentes"
+  );
+
+const totalDepositos =
+  document.getElementById(
+    "totalDepositos"
+  );
+
+const totalAprovados =
+  document.getElementById(
+    "totalAprovados"
+  );
+
+const totalPendentes =
+  document.getElementById(
+    "totalPendentes"
+  );
+
+
+/* ==================================================
+   ESCAPAR HTML
+================================================== */
+
+function escapeHtml(text) {
+
+  return String(
+    text ?? ""
+  )
+  .replace(/&/g, "&amp;")
+  .replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;")
+  .replace(/"/g, "&quot;")
+  .replace(/'/g, "&#039;");
+
+}
+
+
+/* ==================================================
+   STATUS
+================================================== */
+
+function normalizarStatus(status) {
+
+  return String(
+    status || ""
+  )
+  .toLowerCase()
+  .trim();
+
+}
+
+
+function getStatusClass(status) {
+
+  const s =
+    normalizarStatus(status);
+
+  if (s === "aprovado") {
+
+    return "aprovado";
+
+  }
+
+  if (s === "rejeitado") {
+
+    return "rejeitado";
+
+  }
+
+  return "pendente";
+
+}
+
+
+function getStatusIcon(status) {
+
+  const s =
+    normalizarStatus(status);
+
+  if (s === "aprovado") {
+
+    return `
+      <i class="fas fa-check-circle"></i>
+    `;
+
+  }
+
+  if (s === "rejeitado") {
+
+    return `
+      <i class="fas fa-times-circle"></i>
+    `;
+
+  }
+
+  return `
+    <i class="fas fa-clock"></i>
+  `;
+
+}
+
+
+/* ==================================================
+   DATA
+================================================== */
+
+function obterTimestamp(data) {
+
+  if (!data) {
+
+    return 0;
+
+  }
+
+  if (
+    typeof data === "number"
+  ) {
+
+    return data;
+
+  }
+
+  const numero =
+    Number(data);
+
+  if (
+    !isNaN(numero) &&
+    numero > 0
+  ) {
+
+    return numero;
+
+  }
+
+  const dataConvertida =
+    new Date(data).getTime();
+
+  return isNaN(
+    dataConvertida
+  )
+    ? 0
+    : dataConvertida;
+
+}
+
+
+function formatarData(data) {
+
+  const timestamp =
+    obterTimestamp(data);
+
+  if (!timestamp) {
+
+    return "Data não disponível";
+
+  }
+
+  const d =
+    new Date(timestamp);
+
+  if (
+    isNaN(
+      d.getTime()
+    )
+  ) {
+
+    return "Data não disponível";
+
+  }
+
+  const dia =
+    String(
+      d.getDate()
+    )
+    .padStart(2, "0");
+
+  const mes =
+    String(
+      d.getMonth() + 1
+    )
+    .padStart(2, "0");
+
+  const ano =
+    d.getFullYear();
+
+  const hora =
+    String(
+      d.getHours()
+    )
+    .padStart(2, "0");
+
+  const minutos =
+    String(
+      d.getMinutes()
+    )
+    .padStart(2, "0");
+
+  return (
+    `${dia}/${mes}/${ano} ${hora}:${minutos}`
+  );
+
+}
+
+
+/* ==================================================
+   VALOR
+================================================== */
+
+function formatarValor(valor) {
+
+  const numero =
+    Number(valor || 0);
+
+  return numero.toLocaleString(
+    "pt-AO",
+    {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }
+  );
+
+}
+
+
+/* ==================================================
+   OBTER ID DO USUÁRIO
+================================================== */
+
+function obterIdUsuario(
+  deposito,
+  uidAutenticado,
+  chaveDeposito
+) {
+
+  /*
+   * Prioridade:
+   *
+   * 1. uid
+   * 2. userId
+   * 3. usuarioId
+   * 4. userUID
+   * 5. uid autenticado
+   * 6. chave do depósito
+   */
+
+  const id =
+    deposito.uid ||
+    deposito.userId ||
+    deposito.usuarioId ||
+    deposito.userUID ||
+    uidAutenticado ||
+    chaveDeposito ||
+    "ID não disponível";
+
+  return String(id);
+
+}
+
+
+/* ==================================================
+   NOME DA PLATAFORMA
+================================================== */
+
+function obterNomePlataforma() {
+
+  return "LIBRAKI-INVEST";
+
+}
+
+
+/* ==================================================
+   AUTENTICAÇÃO
+================================================== */
+
+auth.onAuthStateChanged(
+  function(user) {
+
+    /*
+     * USUÁRIO NÃO AUTENTICADO
+     */
+
+    if (!user) {
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    /*
+     * UID DO USUÁRIO AUTENTICADO
+     */
+
+    const uid =
+      user.uid;
+
+
+    console.log(
+      "Usuário autenticado:",
+      uid
+    );
+
+
+    /*
+     * CAMINHO:
+     *
+     * depositosPendentes/{uid}
+     */
+
+    const depositoRef =
+      db.ref(
+        "depositosPendentes/" +
+        uid
+      );
+
+
+    /* ==================================================
+       SINCRONIZAÇÃO EM TEMPO REAL
+    ================================================== */
+
+    depositoRef.on(
+
+      "value",
+
+      function(snapshot) {
+
+        const depositosArray =
+          [];
+
+
+        /* ==================================================
+           LER DEPÓSITOS
+        ================================================== */
+
+        if (
+          snapshot.exists()
+        ) {
+
+          snapshot.forEach(
+            function(child) {
+
+              const deposito =
+                child.val() || {};
+
+
+              /*
+               * Guardar a chave
+               * individual do depósito.
+               */
+
+              deposito.id =
+                deposito.id ||
+                child.key;
+
+
+              /*
+               * Guardar a chave original
+               * para utilização como fallback.
+               */
+
+              deposito._key =
+                child.key;
+
+
+              depositosArray.push(
+                deposito
+              );
+
+            }
+          );
+
+        }
+
+
+        /* ==================================================
+           CONTADORES
+        ================================================== */
+
+        const total =
+          depositosArray.length;
+
+
+        const aprovados =
+          depositosArray.filter(
+            function(item) {
+
+              return (
+                normalizarStatus(
+                  item.status
+                ) === "aprovado"
+              );
+
+            }
+          ).length;
+
+
+        const pendentes =
+          depositosArray.filter(
+            function(item) {
+
+              return (
+                normalizarStatus(
+                  item.status
+                ) === "pendente"
+              );
+
+            }
+          ).length;
+
+
+        totalDepositos.textContent =
+          total;
+
+
+        totalAprovados.textContent =
+          aprovados;
+
+
+        totalPendentes.textContent =
+          pendentes;
+
+
+        /* ==================================================
+           NENHUM DEPÓSITO
+        ================================================== */
+
+        if (
+          depositosArray.length === 0
+        ) {
+
+          container.innerHTML = `
+
+            <div class="sem-resultados">
+
+              <div class="sem-resultados-icon">
+
+                <i class="fa-solid fa-receipt"></i>
+
+              </div>
+
+              Nenhum depósito encontrado.
+
+            </div>
+
+          `;
+
+          return;
+
+        }
+
+
+        /* ==================================================
+           ORDENAR DO MAIS RECENTE
+           PARA O MAIS ANTIGO
+        ================================================== */
+
+        depositosArray.sort(
+          function(a, b) {
+
+            const dataA =
+              obterTimestamp(
+                a.timestamp ||
+                a.data ||
+                a.createdAt
+              );
+
+
+            const dataB =
+              obterTimestamp(
+                b.timestamp ||
+                b.data ||
+                b.createdAt
+              );
+
+
+            return (
+              dataB -
+              dataA
+            );
+
+          }
+        );
+
+
+        /* ==================================================
+           LIMPAR LISTA
+        ================================================== */
+
+        container.innerHTML =
+          "";
+
+
+        /* ==================================================
+           MOSTRAR DEPÓSITOS
+        ================================================== */
+
+        depositosArray.forEach(
+          function(data) {
+
+
+            /* ==================================================
+               STATUS
+            ================================================== */
+
+            const status =
+              String(
+                data.status ||
+                "pendente"
+              );
+
+
+            const statusClass =
+              getStatusClass(
+                status
+              );
+
+
+            const statusIcon =
+              getStatusIcon(
+                status
+              );
+
+
+            /* ==================================================
+               DATA
+            ================================================== */
+
+            const dataHora =
+              formatarData(
+                data.timestamp ||
+                data.data ||
+                data.createdAt
+              );
+
+
+            /* ==================================================
+               NOME DA PLATAFORMA
+            ================================================== */
+
+            const nomePlataforma =
+              escapeHtml(
+                obterNomePlataforma()
+              );
+
+
+            /* ==================================================
+               ID DO USUÁRIO
+            ================================================== */
+
+            const idUsuario =
+              escapeHtml(
+                obterIdUsuario(
+                  data,
+                  uid,
+                  data._key
+                )
+              );
+
+
+            /* ==================================================
+               COMPROVATIVO
+            ================================================== */
+
+            const comprovativoUrl =
+              data.comprovativoUrl ||
+              data.comprovativo ||
+              "";
+
+
+            let comprovativo =
+              "";
+
+
+            if (
+              comprovativoUrl
+            ) {
+
+              comprovativo = `
+
+                <a
+                  class="link-comprovativo"
+                  href="${escapeHtml(comprovativoUrl)}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+
+                  <i class="fas fa-receipt"></i>
+
+                  Ver comprovativo
+
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+              `;
+
+            }
+
+
+            /* ==================================================
+               CRIAR ITEM
+            ================================================== */
+
+            const item =
+              document.createElement(
+                "div"
+              );
+
+
+            item.className =
+              "item";
+
+
+            item.innerHTML = `
+
+              <div class="item-top">
+
+                <div class="valor">
+
+                  <i class="fas fa-money-bill-wave"></i>
+
+                  Kz ${formatarValor(
+                    data.valor
+                  )}
+
+                </div>
+
+
+                <div
+                  class="status ${statusClass}"
+                >
+
+                  ${statusIcon}
+
+                  ${escapeHtml(
+                    status
+                  )}
+
+                </div>
+
+              </div>
+
+
+              <div class="item-body">
+
+
+                <!-- DATA -->
+
+                <div class="item-info">
+
+                  <i class="fas fa-calendar-alt"></i>
+
+                  ${escapeHtml(
+                    dataHora
+                  )}
+
+                </div>
+
+
+                <!-- NOME DA PLATAFORMA -->
+
+                <div class="item-info">
+
+                  <i class="fas fa-building"></i>
+
+                  ${nomePlataforma}
+
+                </div>
+
+
+                <!-- ID DO USUÁRIO -->
+
+                <div class="item-info id-usuario">
+
+                  <i class="fas fa-id-card"></i>
+
+                  <span>
+                    ID: ${idUsuario}
+                  </span>
+
+                </div>
+
+
+              </div>
+
+
+              ${comprovativo}
+
+            `;
+
+
+            container.appendChild(
+              item
+            );
+
+          }
+        );
+
+      },
+
+
+      /* ==================================================
+         ERRO DE LEITURA
+      ================================================== */
+
+      function(error) {
+
+        console.error(
+          "Erro ao carregar histórico:",
+          error
+        );
+
+
+        totalDepositos.textContent =
+          "—";
+
+
+        totalAprovados.textContent =
+          "—";
+
+
+        totalPendentes.textContent =
+          "—";
+
+
+        let mensagem =
+          "Verifique as regras do Realtime Database.";
+
+
+        if (
+          error &&
+          error.code ===
+          "PERMISSION_DENIED"
+        ) {
+
+          mensagem =
+            "Acesso negado pelo Firebase. Verifique as regras do Realtime Database e se o usuário está autenticado.";
+
+        }
+
+
+        container.innerHTML = `
+
+          <div class="sem-resultados">
+
+            <div class="sem-resultados-icon">
+
+              <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <strong>
+              Não foi possível carregar o histórico.
+            </strong>
+
+            <br><br>
+
+            ${escapeHtml(
+              mensagem
+            )}
+
+          </div>
+
+        `;
+
+      }
+
+    );
+
+  }
+
+);
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,2595 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI-INVEST</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #1d4ed8;
+  --blue-dark: #123a9e;
+  --blue-light: #3b82f6;
+
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+
+  --green: #16a34a;
+  --red: #dc2626;
+
+  --bg: #f4f7fc;
+
+  --text: #172033;
+  --muted: #718096;
+
+  --white: #ffffff;
+}
+
+body {
+
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59,130,246,.10),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff,
+      #f8fafc
+    );
+
+  min-height: 100vh;
+
+  color: var(--text);
+
+  padding-bottom: 30px;
+
+  animation: pageIn .45s ease;
+}
+
+@keyframes pageIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* HEADER */
+
+header {
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59,130,246,.45),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #123a9e,
+      #1d4ed8 55%,
+      #2563eb
+    );
+
+  color: white;
+
+  padding:
+    24px
+    20px
+    38px;
+
+  border-radius:
+    0
+    0
+    30px
+    30px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(29,78,216,.20);
+}
+
+header::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.06);
+
+  right: -70px;
+  top: -80px;
+}
+
+header::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  left: -45px;
+  bottom: -55px;
+}
+
+.header-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 520px;
+
+  margin: auto;
+}
+
+/* LOGO */
+
+.logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 23px;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+.logo-icon {
+
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,.14);
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  border-radius: 11px;
+}
+
+.logo-icon i {
+
+  color:
+    var(--gold-light);
+
+  font-size: 16px;
+}
+
+.logo span {
+
+  color:
+    var(--gold-light);
+}
+
+/* HEADER TEXT */
+
+header h1 {
+
+  font-size: 25px;
+
+  font-weight: 800;
+
+  margin-bottom: 7px;
+
+  letter-spacing: -.5px;
+}
+
+header p {
+
+  color:
+    #dbeafe;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+/* CONTAINER */
+
+main {
+
+  width:
+    calc(100% - 30px);
+
+  max-width: 520px;
+
+  margin:
+    -20px auto 0;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+/* CARD */
+
+.card {
+
+  background:
+    rgba(255,255,255,.98);
+
+  border:
+    1px solid #e6eaf1;
+
+  border-radius: 21px;
+
+  padding: 20px;
+
+  margin-bottom: 15px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.06);
+}
+
+/* TÍTULO */
+
+.section-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  margin-bottom: 6px;
+}
+
+.section-icon {
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  font-size: 14px;
+}
+
+.section-description {
+
+  color:
+    var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.6;
+
+  margin-bottom: 18px;
+}
+
+/* SALDO */
+
+.saldo-box {
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #f8fbff
+    );
+
+  border:
+    1px solid #dbeafe;
+
+  border-radius: 15px;
+
+  padding: 15px;
+
+  margin-bottom: 18px;
+}
+
+.saldo-label {
+
+  color:
+    var(--muted);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  margin-bottom: 5px;
+}
+
+.saldo {
+
+  color:
+    var(--blue);
+
+  font-size: 22px;
+
+  font-weight: 800;
+}
+
+/* MÉTODOS DE SAQUE */
+
+.metodos {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+.metodo {
+
+  position: relative;
+
+  border:
+    1px solid #dce3ed;
+
+  background:
+    #f8fafc;
+
+  border-radius: 14px;
+
+  padding: 14px 10px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.metodo:hover {
+
+  border-color:
+    #93c5fd;
+
+  background:
+    #eff6ff;
+}
+
+.metodo.ativo {
+
+  border-color:
+    var(--blue);
+
+  background:
+    #eff6ff;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(37,99,235,.08);
+}
+
+.metodo input {
+
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.metodo i {
+
+  display: block;
+
+  font-size: 21px;
+
+  color:
+    var(--blue);
+
+  margin-bottom: 7px;
+}
+
+.metodo strong {
+
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  color:
+    #1e293b;
+}
+
+.metodo small {
+
+  display: block;
+
+  margin-top: 4px;
+
+  color:
+    var(--muted);
+
+  font-size: 8px;
+}
+
+/* FORM */
+
+.form-group {
+
+  margin-bottom: 15px;
+}
+
+.form-label {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  color:
+    #374151;
+
+  margin-bottom: 7px;
+}
+
+.form-label i {
+
+  color:
+    var(--blue);
+
+  font-size: 11px;
+}
+
+.input-wrapper {
+
+  position: relative;
+}
+
+.input-wrapper > i {
+
+  position: absolute;
+
+  left: 13px;
+
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  color:
+    #94a3b8;
+
+  font-size: 13px;
+
+  pointer-events: none;
+}
+
+input,
+select {
+
+  width: 100%;
+
+  height: 46px;
+
+  border:
+    1px solid #dce3ed;
+
+  border-radius: 12px;
+
+  background:
+    #f8fafc;
+
+  color:
+    var(--text);
+
+  padding:
+    0 13px 0 38px;
+
+  font-family:
+    inherit;
+
+  font-size: 11px;
+
+  outline: none;
+
+  transition:
+    .2s;
+}
+
+select {
+
+  appearance: none;
+
+  cursor: pointer;
+
+  padding-right: 35px;
+}
+
+.input-wrapper.select-wrapper::after {
+
+  content:
+    "\f078";
+
+  font-family:
+    "Font Awesome 6 Free";
+
+  font-weight:
+    900;
+
+  position: absolute;
+
+  right: 13px;
+
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  color:
+    #94a3b8;
+
+  pointer-events: none;
+
+  font-size: 10px;
+}
+
+input:focus,
+select:focus {
+
+  border-color:
+    var(--blue);
+
+  background:
+    white;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(37,99,235,.08);
+}
+
+input::placeholder {
+
+  color:
+    #a0aec0;
+}
+
+/* MÍNIMO */
+
+.minimum-info {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  background:
+    #eff6ff;
+
+  border:
+    1px solid #dbeafe;
+
+  color:
+    #1e40af;
+
+  border-radius:
+    11px;
+
+  padding:
+    10px 12px;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+
+  margin-bottom: 17px;
+}
+
+.minimum-info i {
+
+  font-size: 12px;
+
+  color:
+    var(--blue);
+}
+
+/* ==================================================
+   RESUMO DO SAQUE
+================================================== */
+
+.resumo-saque {
+
+  display: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fafc,
+      #ffffff
+    );
+
+  border:
+    1px solid #e2e8f0;
+
+  border-radius: 15px;
+
+  padding: 15px;
+
+  margin-top: 2px;
+
+  margin-bottom: 17px;
+
+  animation: resumoIn .25s ease;
+}
+
+@keyframes resumoIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+.resumo-titulo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  color:
+    #1e293b;
+
+  margin-bottom: 12px;
+}
+
+.resumo-titulo i {
+
+  color:
+    var(--blue);
+}
+
+.resumo-linha {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding: 8px 0;
+
+  border-bottom:
+    1px solid #eef2f7;
+
+  font-size: 10px;
+}
+
+.resumo-linha:last-child {
+
+  border-bottom:
+    none;
+
+  padding-bottom: 0;
+}
+
+.resumo-linha span:first-child {
+
+  color:
+    #64748b;
+}
+
+.resumo-linha strong {
+
+  color:
+    #1e293b;
+
+  font-size: 10px;
+
+  text-align: right;
+}
+
+.resumo-taxa strong {
+
+  color:
+    var(--red);
+}
+
+.resumo-liquido {
+
+  margin-top: 4px;
+
+  padding-top: 10px;
+
+  border-top:
+    1px solid #dbeafe;
+}
+
+.resumo-liquido span:first-child {
+
+  color:
+    #1e40af;
+
+  font-weight: 700;
+}
+
+.resumo-liquido strong {
+
+  color:
+    var(--green);
+
+  font-size: 12px;
+}
+
+.resumo-saldo strong {
+
+  color:
+    var(--blue);
+}
+
+/* BOTÃO */
+
+#botaoRetirar {
+
+  width: 100%;
+
+  height: 47px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color:
+    white;
+
+  font-family:
+    inherit;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px
+    rgba(29,78,216,.20);
+
+  transition:
+    .2s;
+
+  margin-bottom: 10px;
+}
+
+#botaoRetirar:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 9px 20px
+    rgba(29,78,216,.28);
+}
+
+#botaoRetirar:active {
+
+  transform:
+    scale(.98);
+}
+
+#botaoRetirar:disabled {
+
+  background:
+    #cbd5e1;
+
+  cursor:
+    not-allowed;
+
+  box-shadow:
+    none;
+
+  transform:
+    none;
+}
+
+/* HISTÓRICO */
+
+.registros-link {
+
+  width: 100%;
+
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  background:
+    #f8fafc;
+
+  border:
+    1px solid #e2e8f0;
+
+  color:
+    #334155;
+
+  border-radius:
+    12px;
+
+  text-decoration:
+    none;
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+
+  transition:
+    .2s;
+}
+
+.registros-link:hover {
+
+  background:
+    #eff6ff;
+
+  border-color:
+    #bfdbfe;
+
+  color:
+    var(--blue);
+
+  transform:
+    translateY(-1px);
+}
+
+.registros-link i {
+
+  color:
+    var(--blue);
+}
+
+/* MENSAGEM */
+
+.msg {
+
+  display: none;
+
+  margin-top:
+    14px;
+
+  padding:
+    11px 12px;
+
+  border-radius:
+    11px;
+
+  text-align:
+    center;
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.5;
+}
+
+/* RODAPÉ */
+
+footer {
+
+  text-align:
+    center;
+
+  color:
+    #94a3b8;
+
+  font-size:
+    9px;
+
+  padding:
+    5px 20px 20px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 360px) {
+
+  header h1 {
+    font-size: 23px;
+  }
+
+  main {
+    width:
+      calc(100% - 22px);
+  }
+
+  .card {
+    padding:
+      17px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header-content">
+
+    <div class="logo">
+
+      <div class="logo-icon">
+        <i class="fa-solid fa-chart-line"></i>
+      </div>
+
+      LIBRAKI <span>INVEST</span>
+
+    </div>
+
+    <h1>
+      Solicitar Saque
+    </h1>
+
+    <p>
+      Levante seus fundos de forma simples,
+      rápida e segura.
+    </p>
+
+  </div>
+
+</header>
+
+<main>
+
+  <div class="card">
+
+    <div class="section-title">
+
+      <div class="section-icon">
+        <i class="fa-solid fa-money-bill-transfer"></i>
+      </div>
+
+      Dados do levantamento
+
+    </div>
+
+    <p class="section-description">
+
+      Escolha o método de saque e informe
+      os dados necessários para receber o seu levantamento.
+
+    </p>
+
+    <!-- SALDO -->
+
+    <div class="saldo-box">
+
+      <div class="saldo-label">
+        SALDO DISPONÍVEL
+      </div>
+
+      <div
+        class="saldo"
+        id="saldoDisponivel"
+      >
+        0,00 Kz
+      </div>
+
+    </div>
+
+    <!-- MÉTODO DE SAQUE -->
+
+    <div class="form-group">
+
+      <label class="form-label">
+
+        <i class="fa-solid fa-wallet"></i>
+
+        Método de saque
+
+      </label>
+
+      <div class="metodos">
+
+        <label class="metodo ativo" id="metodoBanco">
+
+          <input
+            type="radio"
+            name="metodo"
+            value="BANCO"
+            checked
+            onchange="alterarMetodo('BANCO')"
+          >
+
+          <i class="fa-solid fa-building-columns"></i>
+
+          <strong>BANCO</strong>
+
+          <small>
+            Conta bancária
+          </small>
+
+        </label>
+
+
+        <label class="metodo" id="metodoPayPay">
+
+          <input
+            type="radio"
+            name="metodo"
+            value="PAY PAY"
+            onchange="alterarMetodo('PAY PAY')"
+          >
+
+          <i class="fa-solid fa-mobile-screen-button"></i>
+
+          <strong>PAY PAY</strong>
+
+          <small>
+            Conta Pay Pay
+          </small>
+
+        </label>
+
+      </div>
+
+    </div>
+
+    <!-- MÍNIMO -->
+
+    <div class="minimum-info">
+
+      <i class="fa-solid fa-circle-info"></i>
+
+      <span>
+        O valor mínimo para levantamento é de
+        <strong>3.000 Kz</strong>.
+        Taxa de levantamento:
+        <strong>3%</strong>.
+      </span>
+
+    </div>
+
+    <!-- VALOR -->
+
+    <div class="form-group">
+
+      <label
+        class="form-label"
+        for="valor"
+      >
+
+        <i class="fa-solid fa-coins"></i>
+
+        Montante
+
+      </label>
+
+      <div class="input-wrapper">
+
+        <i class="fa-solid fa-money-bill-wave"></i>
+
+        <input
+          type="number"
+          id="valor"
+          placeholder="Informe o montante a levantar"
+          min="3000"
+          step="1"
+          inputmode="numeric"
+          oninput="atualizarResumoSaque()"
+        >
+
+      </div>
+
+    </div>
+
+    <!-- ==================================================
+         RESUMO DO SAQUE
+    ================================================== -->
+
+    <div
+      class="resumo-saque"
+      id="resumoSaque"
+    >
+
+      <div class="resumo-titulo">
+
+        <i class="fa-solid fa-receipt"></i>
+
+        Resumo do levantamento
+
+      </div>
+
+      <div class="resumo-linha">
+
+        <span>
+          Valor solicitado
+        </span>
+
+        <strong id="resumoValor">
+          0,00 Kz
+        </strong>
+
+      </div>
+
+      <div class="resumo-linha resumo-taxa">
+
+        <span>
+          Taxa 3%
+        </span>
+
+        <strong id="resumoTaxa">
+          -0,00 Kz
+        </strong>
+
+      </div>
+
+      <div class="resumo-linha resumo-liquido">
+
+        <span>
+          Valor líquido recebido
+        </span>
+
+        <strong id="resumoLiquido">
+          0,00 Kz
+        </strong>
+
+      </div>
+
+      <div class="resumo-linha">
+
+        <span>
+          Desconto no saldo
+        </span>
+
+        <strong id="resumoDesconto">
+          0,00 Kz
+        </strong>
+
+      </div>
+
+      <div class="resumo-linha resumo-saldo">
+
+        <span>
+          Saldo restante
+        </span>
+
+        <strong id="resumoSaldo">
+          0,00 Kz
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         DADOS BANCO
+    ========================== -->
+
+    <div id="dadosBanco">
+
+      <div class="form-group">
+
+        <label
+          class="form-label"
+          for="banco"
+        >
+
+          <i class="fa-solid fa-building-columns"></i>
+
+          Banco
+
+        </label>
+
+        <div class="input-wrapper select-wrapper">
+
+          <i class="fa-solid fa-building-columns"></i>
+
+          <select id="banco">
+
+            <option value="">
+              -- Escolha o banco --
+            </option>
+
+            <option value="BFA">
+              BFA
+            </option>
+
+            <option value="ATL">
+              ATL
+            </option>
+
+            <option value="BIC">
+              BIC
+            </option>
+
+            <option value="BAI">
+              BAI
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label
+          class="form-label"
+          for="nib"
+        >
+
+          <i class="fa-solid fa-credit-card"></i>
+
+          NIB / IBAN
+
+        </label>
+
+        <div class="input-wrapper">
+
+          <i class="fa-solid fa-hashtag"></i>
+
+          <input
+            type="text"
+            id="nib"
+            placeholder="Digite o NIB / IBAN"
+            autocomplete="off"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label
+          class="form-label"
+          for="titularBanco"
+        >
+
+          <i class="fa-solid fa-user"></i>
+
+          Nome do beneficiário
+
+        </label>
+
+        <div class="input-wrapper">
+
+          <i class="fa-solid fa-user"></i>
+
+          <input
+            type="text"
+            id="titularBanco"
+            placeholder="Nome do titular da conta"
+            autocomplete="name"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         DADOS PAY PAY
+    ========================== -->
+
+    <div
+      id="dadosPayPay"
+      style="display:none;"
+    >
+
+      <div class="form-group">
+
+        <label
+          class="form-label"
+          for="paypay"
+        >
+
+          <i class="fa-solid fa-mobile-screen-button"></i>
+
+          Número / Conta Pay Pay
+
+        </label>
+
+        <div class="input-wrapper">
+
+          <i class="fa-solid fa-mobile-screen-button"></i>
+
+          <input
+            type="text"
+            id="paypay"
+            placeholder="Digite o número ou conta Pay Pay"
+            autocomplete="off"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label
+          class="form-label"
+          for="titularPayPay"
+        >
+
+          <i class="fa-solid fa-user"></i>
+
+          Nome do beneficiário
+
+        </label>
+
+        <div class="input-wrapper">
+
+          <i class="fa-solid fa-user"></i>
+
+          <input
+            type="text"
+            id="titularPayPay"
+            placeholder="Nome do titular Pay Pay"
+            autocomplete="name"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- BOTÃO -->
+
+    <button
+      id="botaoRetirar"
+      onclick="fazerRetirada()"
+      disabled
+    >
+
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+      &nbsp;
+
+      Solicitar levantamento
+
+    </button>
+
+
+    <!-- HISTÓRICO -->
+
+    <a
+      href="registros2.html"
+      class="registros-link"
+    >
+
+      <i class="fa-solid fa-clock-rotate-left"></i>
+
+      Ver histórico de levantamentos
+
+    </a>
+
+
+    <div
+      class="msg"
+      id="mensagem"
+    ></div>
+
+  </div>
+
+</main>
+
+<footer>
+
+  LIBRAKI-INVEST © 2026
+
+</footer>
+
+
+<!-- FIREBASE -->
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+
+<script>
+
+/* ==================================================
+   CONFIGURAÇÃO FIREBASE
+================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+  authDomain:
+    "preditor-lucifer.firebaseapp.com",
+
+  databaseURL:
+    "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+  projectId:
+    "preditor-lucifer",
+
+  storageBucket:
+    "preditor-lucifer.firebasestorage.app",
+
+  messagingSenderId:
+    "409997785375"
+
+};
+
+
+/* ==================================================
+   FIREBASE
+================================================== */
+
+firebase.initializeApp(firebaseConfig);
+
+const auth =
+  firebase.auth();
+
+const database =
+  firebase.database();
+
+
+/* ==================================================
+   CONFIGURAÇÕES DO SAQUE
+================================================== */
+
+const TAXA_SAQUE =
+  0.03;
+
+const TAXA_PERCENTUAL =
+  3;
+
+const VALOR_MINIMO =
+  3000;
+
+
+/* ==================================================
+   VARIÁVEIS
+================================================== */
+
+let userId = null;
+
+let saldoAtual = 0;
+
+let podeRetirar = false;
+
+let processando = false;
+
+let metodoAtual = "BANCO";
+
+
+/* ==================================================
+   ELEMENTOS
+================================================== */
+
+const saldoElemento =
+  document.getElementById(
+    "saldoDisponivel"
+  );
+
+const botao =
+  document.getElementById(
+    "botaoRetirar"
+  );
+
+const valorElemento =
+  document.getElementById(
+    "valor"
+  );
+
+
+/* ==================================================
+   FORMATAR KZ
+================================================== */
+
+function formatarKz(valor) {
+
+  return Number(
+    valor || 0
+  ).toLocaleString(
+    "pt-AO",
+    {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }
+  ) + " Kz";
+
+}
+
+
+/* ==================================================
+   CALCULAR TAXA
+================================================== */
+
+function calcularTaxa(valor) {
+
+  return valor * TAXA_SAQUE;
+
+}
+
+
+/* ==================================================
+   ATUALIZAR RESUMO
+================================================== */
+
+function atualizarResumoSaque() {
+
+  const valor =
+    Number(
+      valorElemento.value
+    );
+
+
+  const resumo =
+    document.getElementById(
+      "resumoSaque"
+    );
+
+
+  if (
+    !Number.isFinite(valor) ||
+    valor <= 0
+  ) {
+
+    resumo.style.display =
+      "none";
+
+    return;
+
+  }
+
+
+  const taxa =
+    calcularTaxa(
+      valor
+    );
+
+
+  const valorLiquido =
+    valor - taxa;
+
+
+  const saldoRestante =
+    saldoAtual - valor;
+
+
+  document.getElementById(
+    "resumoValor"
+  ).textContent =
+    formatarKz(
+      valor
+    );
+
+
+  document.getElementById(
+    "resumoTaxa"
+  ).textContent =
+    "-" +
+    formatarKz(
+      taxa
+    );
+
+
+  document.getElementById(
+    "resumoLiquido"
+  ).textContent =
+    formatarKz(
+      valorLiquido
+    );
+
+
+  document.getElementById(
+    "resumoDesconto"
+  ).textContent =
+    formatarKz(
+      valor
+    );
+
+
+  document.getElementById(
+    "resumoSaldo"
+  ).textContent =
+    formatarKz(
+      Math.max(
+        saldoRestante,
+        0
+      )
+    );
+
+
+  resumo.style.display =
+    "block";
+
+}
+
+
+/* ==================================================
+   ALTERAR MÉTODO
+================================================== */
+
+function alterarMetodo(metodo) {
+
+  metodoAtual =
+    metodo;
+
+
+  const banco =
+    document.getElementById(
+      "metodoBanco"
+    );
+
+  const paypay =
+    document.getElementById(
+      "metodoPayPay"
+    );
+
+  const dadosBanco =
+    document.getElementById(
+      "dadosBanco"
+    );
+
+  const dadosPayPay =
+    document.getElementById(
+      "dadosPayPay"
+    );
+
+
+  if (
+    metodo === "BANCO"
+  ) {
+
+    banco.classList.add(
+      "ativo"
+    );
+
+    paypay.classList.remove(
+      "ativo"
+    );
+
+    dadosBanco.style.display =
+      "block";
+
+    dadosPayPay.style.display =
+      "none";
+
+  } else {
+
+    banco.classList.remove(
+      "ativo"
+    );
+
+    paypay.classList.add(
+      "ativo"
+    );
+
+    dadosBanco.style.display =
+      "none";
+
+    dadosPayPay.style.display =
+      "block";
+
+  }
+
+
+  limparMensagem();
+
+}
+
+
+/* ==================================================
+   AUTENTICAÇÃO
+================================================== */
+
+auth.onAuthStateChanged(
+  function(user) {
+
+    if (!user) {
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    userId =
+      user.uid;
+
+
+    const userRef =
+      database.ref(
+        "usuarios/" +
+        userId
+      );
+
+
+    /* ==================================================
+       SALDO EM TEMPO REAL
+    ================================================== */
+
+    userRef
+      .child("saldo")
+      .on(
+        "value",
+        function(snapshot) {
+
+          saldoAtual =
+            Number(
+              snapshot.val() || 0
+            );
+
+
+          saldoElemento.textContent =
+            formatarKz(
+              saldoAtual
+            );
+
+
+          atualizarResumoSaque();
+
+        }
+      );
+
+
+    /* ==================================================
+       DADOS BANCÁRIOS
+    ================================================== */
+
+    userRef
+      .child("dadosBancarios")
+      .once("value")
+      .then(
+        function(snapshot) {
+
+          if (
+            !snapshot.exists()
+          ) {
+
+            return;
+
+          }
+
+
+          const dados =
+            snapshot.val();
+
+
+          document.getElementById(
+            "banco"
+          ).value =
+            dados.banco || "";
+
+
+          document.getElementById(
+            "nib"
+          ).value =
+            dados.nib || "";
+
+
+          document.getElementById(
+            "titularBanco"
+          ).value =
+            dados.titular || "";
+
+        }
+      );
+
+
+    /* ==================================================
+       DADOS PAY PAY
+    ================================================== */
+
+    userRef
+      .child("dadosPayPay")
+      .once("value")
+      .then(
+        function(snapshot) {
+
+          if (
+            !snapshot.exists()
+          ) {
+
+            return;
+
+          }
+
+
+          const dados =
+            snapshot.val();
+
+
+          document.getElementById(
+            "paypay"
+          ).value =
+            dados.conta || "";
+
+
+          document.getElementById(
+            "titularPayPay"
+          ).value =
+            dados.titular || "";
+
+        }
+      );
+
+
+    /* ==================================================
+       INVESTIMENTOS
+    ================================================== */
+
+    userRef
+      .child("investimentos")
+      .on(
+        "value",
+        function(snapshot) {
+
+          const investimentos =
+            snapshot.val();
+
+
+          podeRetirar =
+            false;
+
+
+          if (
+            investimentos
+          ) {
+
+            Object.values(
+              investimentos
+            ).forEach(
+              function(investimento) {
+
+                if (
+                  investimento &&
+                  investimento.status ===
+                  "ativo"
+                ) {
+
+                  podeRetirar =
+                    true;
+
+                }
+
+              }
+            );
+
+          }
+
+
+          atualizarEstadoBotao();
+
+        }
+      );
+
+  }
+);
+
+
+/* ==================================================
+   ESTADO DO BOTÃO
+================================================== */
+
+function atualizarEstadoBotao() {
+
+  if (processando) {
+
+    botao.disabled =
+      true;
+
+    return;
+
+  }
+
+
+  botao.disabled =
+    !podeRetirar;
+
+}
+
+
+/* ==================================================
+   MENSAGEM
+================================================== */
+
+function mostrarMensagem(
+  texto,
+  tipo
+) {
+
+  const mensagem =
+    document.getElementById(
+      "mensagem"
+    );
+
+
+  mensagem.innerText =
+    texto;
+
+
+  mensagem.style.display =
+    "block";
+
+
+  if (
+    tipo === "sucesso"
+  ) {
+
+    mensagem.style.background =
+      "#dcfce7";
+
+    mensagem.style.border =
+      "1px solid #bbf7d0";
+
+    mensagem.style.color =
+      "#15803d";
+
+  } else {
+
+    mensagem.style.background =
+      "#fee2e2";
+
+    mensagem.style.border =
+      "1px solid #fecaca";
+
+    mensagem.style.color =
+      "#b91c1c";
+
+  }
+
+}
+
+
+/* ==================================================
+   LIMPAR MENSAGEM
+================================================== */
+
+function limparMensagem() {
+
+  const mensagem =
+    document.getElementById(
+      "mensagem"
+    );
+
+  mensagem.innerText =
+    "";
+
+  mensagem.style.display =
+    "none";
+
+}
+
+
+/* ==================================================
+   FAZER RETIRADA
+================================================== */
+
+async function fazerRetirada() {
+
+  if (processando) {
+    return;
+  }
+
+
+  limparMensagem();
+
+
+  if (!userId) {
+
+    mostrarMensagem(
+      "❌ Usuário não autenticado.",
+      "erro"
+    );
+
+    return;
+
+  }
+
+
+  if (!podeRetirar) {
+
+    mostrarMensagem(
+      "❌ É necessário possuir um investimento ativo para realizar saques.",
+      "erro"
+    );
+
+    return;
+
+  }
+
+
+  const valor =
+    Number(
+      valorElemento.value
+    );
+
+
+  /* ==================================================
+     CALCULAR TAXA
+  ================================================== */
+
+  const taxa =
+    calcularTaxa(
+      valor
+    );
+
+
+  const valorLiquido =
+    valor - taxa;
+
+
+  /* ==================================================
+     VALIDAR VALOR
+  ================================================== */
+
+  if (
+    !Number.isFinite(valor) ||
+    valor < VALOR_MINIMO
+  ) {
+
+    mostrarMensagem(
+      "❌ O montante mínimo para levantamento é 3.000 Kz.",
+      "erro"
+    );
+
+    return;
+
+  }
+
+
+  if (
+    valor > saldoAtual
+  ) {
+
+    mostrarMensagem(
+      "❌ O montante solicitado excede o seu saldo disponível.",
+      "erro"
+    );
+
+    return;
+
+  }
+
+
+  if (
+    valorLiquido <= 0
+  ) {
+
+    mostrarMensagem(
+      "❌ O valor líquido do levantamento é inválido.",
+      "erro"
+    );
+
+    return;
+
+  }
+
+
+  /* ==================================================
+     DADOS BANCO
+  ================================================== */
+
+  const banco =
+    document.getElementById(
+      "banco"
+    ).value;
+
+
+  const nib =
+    document.getElementById(
+      "nib"
+    ).value.trim();
+
+
+  const titularBanco =
+    document.getElementById(
+      "titularBanco"
+    ).value.trim();
+
+
+  /* ==================================================
+     DADOS PAY PAY
+  ================================================== */
+
+  const paypay =
+    document.getElementById(
+      "paypay"
+    ).value.trim();
+
+
+  const titularPayPay =
+    document.getElementById(
+      "titularPayPay"
+    ).value.trim();
+
+
+  /* ==================================================
+     VALIDAR BANCO
+  ================================================== */
+
+  if (
+    metodoAtual === "BANCO"
+  ) {
+
+    if (!banco) {
+
+      mostrarMensagem(
+        "❌ Selecione o banco.",
+        "erro"
+      );
+
+      return;
+
+    }
+
+
+    if (!nib) {
+
+      mostrarMensagem(
+        "❌ Digite o NIB / IBAN.",
+        "erro"
+      );
+
+      return;
+
+    }
+
+
+    if (!titularBanco) {
+
+      mostrarMensagem(
+        "❌ Digite o nome do beneficiário.",
+        "erro"
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  /* ==================================================
+     VALIDAR PAY PAY
+  ================================================== */
+
+  if (
+    metodoAtual === "PAY PAY"
+  ) {
+
+    if (!paypay) {
+
+      mostrarMensagem(
+        "❌ Digite o número ou conta Pay Pay.",
+        "erro"
+      );
+
+      return;
+
+    }
+
+
+    if (!titularPayPay) {
+
+      mostrarMensagem(
+        "❌ Digite o nome do beneficiário Pay Pay.",
+        "erro"
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  processando =
+    true;
+
+  botao.disabled =
+    true;
+
+  botao.innerHTML =
+    '<i class="fa-solid fa-spinner fa-spin"></i> &nbsp; Processando...';
+
+
+  try {
+
+    const userRef =
+      database.ref(
+        "usuarios/" +
+        userId
+      );
+
+
+    /* ==================================================
+       NOME DO USUÁRIO
+    ================================================== */
+
+    const nomeSnapshot =
+      await userRef
+      .child("nome")
+      .once("value");
+
+
+    const nome =
+      nomeSnapshot.val() ||
+      (
+        metodoAtual === "BANCO"
+          ? titularBanco
+          : titularPayPay
+      ) ||
+      "Sem Nome";
+
+
+    /* ==================================================
+       GUARDAR DADOS DO MÉTODO
+    ================================================== */
+
+    if (
+      metodoAtual === "BANCO"
+    ) {
+
+      await userRef
+        .child("dadosBancarios")
+        .set({
+
+          banco:
+            banco,
+
+          nib:
+            nib,
+
+          titular:
+            titularBanco
+
+        });
+
+    } else {
+
+      await userRef
+        .child("dadosPayPay")
+        .set({
+
+          conta:
+            paypay,
+
+          titular:
+            titularPayPay
+
+        });
+
+    }
+
+
+    /* ==================================================
+       ATUALIZAR SALDO
+       
+       IMPORTANTE:
+       O saldo é reduzido somente pelo VALOR SOLICITADO.
+       A taxa não é descontada novamente.
+    ================================================== */
+
+    const resultado =
+      await userRef
+      .child("saldo")
+      .transaction(
+        function(saldo) {
+
+          const atual =
+            Number(
+              saldo || 0
+            );
+
+
+          if (
+            atual < valor
+          ) {
+
+            return;
+
+          }
+
+
+          return atual - valor;
+
+        }
+      );
+
+
+    if (
+      !resultado.committed
+    ) {
+
+      throw new Error(
+        "Saldo insuficiente."
+      );
+
+    }
+
+
+    const novoSaldo =
+      Number(
+        resultado.snapshot.val() || 0
+      );
+
+
+    /* ==================================================
+       CRIAR PEDIDO DE SAQUE
+    ================================================== */
+
+    const retiradaRef =
+      database
+      .ref("retiradas")
+      .push();
+
+
+    const dadosRetirada = {
+
+      userId:
+        userId,
+
+      nome:
+        nome,
+
+      metodo:
+        metodoAtual,
+
+      /* Valor que foi retirado do saldo */
+      valorRetirada:
+        valor,
+
+      /* Taxa aplicada */
+      taxaPercentual:
+        TAXA_PERCENTUAL,
+
+      /* Valor da taxa */
+      taxa:
+        taxa,
+
+      /* Valor que o usuário recebe */
+      valorLiquido:
+        valorLiquido,
+
+      /* Saldo antes */
+      saldoAnterior:
+        saldoAtual,
+
+      /* Saldo depois */
+      saldoDepois:
+        novoSaldo,
+
+      status:
+        "em análise",
+
+      timestamp:
+        firebase.database
+        .ServerValue
+        .TIMESTAMP
+
+    };
+
+
+    /* ==================================================
+       DADOS ESPECÍFICOS DO MÉTODO
+    ================================================== */
+
+    if (
+      metodoAtual === "BANCO"
+    ) {
+
+      dadosRetirada.banco =
+        banco;
+
+      dadosRetirada.nib =
+        nib;
+
+      dadosRetirada.titular =
+        titularBanco;
+
+    } else {
+
+      dadosRetirada.paypay =
+        paypay;
+
+      dadosRetirada.titular =
+        titularPayPay;
+
+    }
+
+
+    await retiradaRef.set(
+      dadosRetirada
+    );
+
+
+    /* ==================================================
+       ATUALIZAR INTERFACE
+    ================================================== */
+
+    saldoAtual =
+      novoSaldo;
+
+
+    saldoElemento.textContent =
+      formatarKz(
+        novoSaldo
+      );
+
+
+    valorElemento.value =
+      "";
+
+
+    atualizarResumoSaque();
+
+
+    mostrarMensagem(
+      "✅ Solicitação realizada com êxito! Valor líquido: " +
+      formatarKz(valorLiquido) +
+      ". O pedido está em análise.",
+      "sucesso"
+    );
+
+
+    window.scrollTo({
+
+      top:
+        document.body.scrollHeight,
+
+      behavior:
+        "smooth"
+
+    });
+
+
+  } catch(error) {
+
+    console.error(
+      "Erro ao realizar levantamento:",
+      error
+    );
+
+
+    mostrarMensagem(
+      "❌ Não foi possível realizar o levantamento. Verifique o saldo e tente novamente.",
+      "erro"
+    );
+
+  } finally {
+
+    processando =
+      false;
+
+
+    botao.innerHTML =
+      '<i class="fa-solid fa-arrow-right-from-bracket"></i> &nbsp; Solicitar levantamento';
+
+
+    atualizarEstadoBotao();
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>

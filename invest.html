@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI-INVEST</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #1d4ed8;
+  --blue-dark: #123a9e;
+  --blue-light: #3b82f6;
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+  --green: #16a34a;
+  --red: #dc2626;
+  --bg: #f4f7fc;
+  --text: #172033;
+  --muted: #718096;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59,130,246,.10),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff,
+      #f8fafc
+    );
+
+  min-height: 100vh;
+  color: var(--text);
+  padding-bottom: 30px;
+
+  animation: pageIn .45s ease;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HEADER */
+
+header {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59,130,246,.45),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #123a9e,
+      #1d4ed8 55%,
+      #2563eb
+    );
+
+  color: white;
+
+  padding:
+    24px
+    20px
+    38px;
+
+  border-radius:
+    0
+    0
+    30px
+    30px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(29,78,216,.20);
+}
+
+header::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.06);
+
+  right: -70px;
+  top: -80px;
+}
+
+header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  left: -45px;
+  bottom: -55px;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 520px;
+  margin: auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 23px;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.logo-icon {
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,.14);
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  border-radius: 11px;
+}
+
+.logo-icon i {
+  color: var(--gold-light);
+  font-size: 16px;
+}
+
+.logo span {
+  color: var(--gold-light);
+}
+
+header h1 {
+  font-size: 25px;
+  font-weight: 800;
+
+  margin-bottom: 7px;
+  letter-spacing: -.5px;
+}
+
+header p {
+  color: #dbeafe;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* CONTAINER */
+
+main {
+  width: calc(100% - 30px);
+  max-width: 520px;
+
+  margin:
+    -20px auto 0;
+
+  position: relative;
+  z-index: 5;
+}
+
+/* TÍTULO */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  margin-bottom: 5px;
+}
+
+.section-title i {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #eff6ff;
+  color: var(--blue);
+
+  font-size: 14px;
+}
+
+.section-description {
+  color: var(--muted);
+
+  font-size: 10px;
+  line-height: 1.5;
+
+  margin-bottom: 16px;
+}
+
+/* CARD */
+
+.card {
+  background: rgba(255,255,255,.98);
+
+  border:
+    1px solid #e6eaf1;
+
+  border-radius: 21px;
+
+  padding: 19px;
+
+  margin-bottom: 15px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.06);
+}
+
+/* PACOTES */
+
+.pacotes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* PRODUTO */
+
+.produto {
+  position: relative;
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e5eaf2;
+
+  border-radius: 18px;
+
+  padding: 17px;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+
+  animation:
+    cardIn .5s ease both;
+}
+
+.produto:nth-child(1) {
+  animation-delay: .05s;
+}
+
+.produto:nth-child(2) {
+  animation-delay: .10s;
+}
+
+.produto:nth-child(3) {
+  animation-delay: .15s;
+}
+
+.produto:nth-child(4) {
+  animation-delay: .20s;
+}
+
+.produto:nth-child(5) {
+  animation-delay: .25s;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.produto:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px
+    rgba(15,23,42,.08);
+
+  border-color: #bfdbfe;
+}
+
+.produto::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+/* CABEÇALHO */
+
+.produto-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.produto-nome {
+  display: flex;
+
+  align-items: center;
+  gap: 9px;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  color: var(--text);
+}
+
+.produto-icon {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #eff6ff;
+  color: var(--blue);
+
+  font-size: 14px;
+}
+
+.tag {
+  background: #fff7ed;
+  color: #c2410c;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+/* INFORMAÇÕES */
+
+.linha {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 9px 0;
+
+  border-top:
+    1px solid #f0f2f6;
+
+  font-size: 10px;
+
+  color: var(--muted);
+}
+
+.linha strong {
+  color: var(--text);
+  font-size: 11px;
+}
+
+.linha.rendimento strong {
+  color: var(--green);
+  font-size: 12px;
+}
+
+.linha.total strong {
+  color: var(--blue);
+  font-size: 13px;
+}
+
+/* BOTÃO */
+
+.produto button {
+  width: 100%;
+
+  margin-top: 13px;
+
+  padding: 13px;
+
+  border: none;
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 13px
+    rgba(29,78,216,.18);
+
+  transition: .2s;
+}
+
+.produto button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px
+    rgba(29,78,216,.25);
+}
+
+.produto button:active {
+  transform: scale(.98);
+}
+
+.produto button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* MENSAGEM */
+
+.mensagem {
+  display: none;
+
+  padding: 13px 15px;
+
+  margin-top: 5px;
+  margin-bottom: 15px;
+
+  border-radius: 13px;
+
+  text-align: center;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+.mensagem.sucesso {
+  display: block;
+
+  background: #ecfdf5;
+
+  border:
+    1px solid #bbf7d0;
+
+  color: #15803d;
+}
+
+.mensagem.erro {
+  display: block;
+
+  background: #fef2f2;
+
+  border:
+    1px solid #fecaca;
+
+  color: #b91c1c;
+}
+
+/* INFORMAÇÃO */
+
+.info {
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #f8fbff
+    );
+
+  border:
+    1px solid #dbeafe;
+
+  border-radius: 17px;
+
+  padding: 16px;
+
+  margin-bottom: 15px;
+
+  font-size: 10px;
+
+  color: #64748b;
+
+  line-height: 1.7;
+}
+
+.info-title {
+  display: flex;
+
+  align-items: center;
+  gap: 8px;
+
+  color: var(--blue);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  margin-bottom: 6px;
+}
+
+.info-title i {
+  font-size: 13px;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+
+  color: #94a3b8;
+
+  font-size: 9px;
+
+  padding: 5px 20px 20px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 360px) {
+
+  header h1 {
+    font-size: 23px;
+  }
+
+  main {
+    width: calc(100% - 22px);
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .produto {
+    padding: 15px;
+  }
+
+  .linha strong {
+    font-size: 10px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+  <div class="header-content">
+
+    <div class="logo">
+
+      <div class="logo-icon">
+        <i class="fa-solid fa-chart-line"></i>
+      </div>
+
+      LIBRAKI <span>INVEST</span>
+
+    </div>
+
+    <h1>
+      Planos de Investimento
+    </h1>
+
+    <p>
+      Escolha um pacote e acompanhe
+      seus rendimentos durante o período.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <div class="card">
+
+    <div class="section-title">
+
+      <i class="fa-solid fa-chart-pie"></i>
+
+      Pacotes disponíveis
+
+    </div>
+
+    <p class="section-description">
+
+      Todos os pacotes possuem período de
+      40 dias e rendimento diário.
+
+    </p>
+
+
+    <div class="pacotes">
+
+      <!-- PACOTE 1 -->
+
+      <div class="produto">
+
+        <div class="produto-top">
+
+          <div class="produto-nome">
+
+            <div class="produto-icon">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            Pacote 1
+
+          </div>
+
+          <div class="tag">
+            40 DIAS
+          </div>
+
+        </div>
+
+        <div class="linha">
+          <span>Preço</span>
+          <strong>5.000 KZ</strong>
+        </div>
+
+        <div class="linha">
+          <span>Período</span>
+          <strong>40 dias</strong>
+        </div>
+
+        <div class="linha rendimento">
+          <span>Rendimento diário</span>
+          <strong>1.000 KZ</strong>
+        </div>
+
+        <div class="linha total">
+          <span>Rendimento total</span>
+          <strong>40.000 KZ</strong>
+        </div>
+
+        <button
+          onclick="comprar(this, 'Pacote 1', 5000, 40, 40000)">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          &nbsp; INVESTIR
+        </button>
+
+      </div>
+
+
+      <!-- PACOTE 2 -->
+
+      <div class="produto">
+
+        <div class="produto-top">
+
+          <div class="produto-nome">
+
+            <div class="produto-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            Pacote 2 </div>
+
+          <div class="tag">
+            40 DIAS
+          </div>
+
+        </div>
+
+        <div class="linha">
+          <span>Preço</span>
+          <strong>10.000 KZ</strong>
+        </div>
+
+        <div class="linha">
+          <span>Período</span>
+          <strong>40 dias</strong>
+        </div>
+
+        <div class="linha rendimento">
+          <span>Rendimento diário</span>
+          <strong>2.000 KZ</strong>
+        </div>
+
+        <div class="linha total">
+          <span>Rendimento total</span>
+          <strong>80.000 KZ</strong>
+        </div>
+
+        <button
+          onclick="comprar(this, 'Pacote 2', 10000, 40, 80000)">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          &nbsp; INVESTIR
+        </button>
+
+      </div>
+
+
+      <!-- PACOTE 3 -->
+
+      <div class="produto">
+
+        <div class="produto-top">
+
+          <div class="produto-nome">
+
+            <div class="produto-icon">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+
+            Pacote 3
+
+          </div>
+
+          <div class="tag">
+            40 DIAS
+          </div>
+
+        </div>
+
+        <div class="linha">
+          <span>Preço</span>
+          <strong>15.000 KZ</strong>
+        </div>
+
+        <div class="linha">
+          <span>Período</span>
+          <strong>40 dias</strong>
+        </div>
+
+        <div class="linha rendimento">
+          <span>Rendimento diário</span>
+          <strong>3.000 KZ</strong>
+        </div>
+
+        <div class="linha total">
+          <span>Rendimento total</span>
+          <strong>120.000 KZ</strong>
+        </div>
+
+        <button
+          onclick="comprar(this, 'Pacote 3', 15000, 40, 120000)">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          &nbsp; INVESTIR
+        </button>
+
+      </div>
+
+
+      <!-- PACOTE 4 -->
+
+      <div class="produto">
+
+        <div class="produto-top">
+
+          <div class="produto-nome">
+
+            <div class="produto-icon">
+              <i class="fa-solid fa-sack-dollar"></i>
+            </div>
+
+            Pacote 4
+
+          </div>
+
+          <div class="tag">
+            40 DIAS
+          </div>
+
+        </div>
+
+        <div class="linha">
+          <span>Preço</span>
+          <strong>20.000 KZ</strong>
+        </div>
+
+        <div class="linha">
+          <span>Período</span>
+          <strong>40 dias</strong>
+        </div>
+
+        <div class="linha rendimento">
+          <span>Rendimento diário</span>
+          <strong>4.000 KZ</strong>
+        </div>
+
+        <div class="linha total">
+          <span>Rendimento total</span>
+          <strong>160.000 KZ</strong>
+        </div>
+
+        <button
+          onclick="comprar(this, 'Pacote 4', 20000, 40, 160000)">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          &nbsp; INVESTIR
+        </button>
+
+      </div>
+
+
+      <!-- PACOTE 5 -->
+
+      <div class="produto">
+
+        <div class="produto-top">
+
+          <div class="produto-nome">
+
+            <div class="produto-icon">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+
+            Pacote 5
+
+          </div>
+
+          <div class="tag">
+            40 DIAS
+          </div>
+
+        </div>
+
+        <div class="linha">
+          <span>Preço</span>
+          <strong>25.000 KZ</strong>
+        </div>
+
+        <div class="linha">
+          <span>Período</span>
+          <strong>40 dias</strong>
+        </div>
+
+        <div class="linha rendimento">
+          <span>Rendimento diário</span>
+          <strong>5.000 KZ</strong>
+        </div>
+
+        <div class="linha total">
+          <span>Rendimento total</span>
+          <strong>200.000 KZ</strong>
+        </div>
+
+        <button
+          onclick="comprar(this, 'Pacote 5', 25000, 40, 200000)">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+          &nbsp; INVESTIR
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="mensagem"
+    id="mensagem">
+  </div>
+
+
+  <div class="info">
+
+    <div class="info-title">
+
+      <i class="fa-solid fa-circle-info"></i>
+
+      Informações
+
+    </div>
+
+    Escolha um dos pacotes disponíveis para
+    realizar o investimento. O valor será
+    descontado do seu saldo após a confirmação
+    da operação.
+
+  </div>
+
+</main>
+
+
+<footer>
+  LIBRAKI-INVEST © 2026
+</footer>
+
+
+<!-- FIREBASE -->
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+
+<script>
+
+/* ==================================================
+   CONFIGURAÇÃO FIREBASE
+================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+  authDomain:
+    "preditor-lucifer.firebaseapp.com",
+
+  databaseURL:
+    "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+  projectId:
+    "preditor-lucifer",
+
+  storageBucket:
+    "preditor-lucifer.firebasestorage.app",
+
+  messagingSenderId:
+    "409997785375",
+
+  /*
+    IMPORTANTE:
+    Substitua pelo appId WEB
+    criado no Firebase Console.
+
+    NÃO use aqui o appId Android:
+    1:409997785375:android:...
+  */
+
+  appId:
+    "COLOQUE_AQUI_O_APP_ID_WEB"
+
+};
+
+
+firebase.initializeApp(firebaseConfig);
+
+
+/* ==================================================
+   VARIÁVEIS
+================================================== */
+
+let userId = null;
+let saldoAtual = 0;
+let carregandoSaldo = false;
+
+
+/* ==================================================
+   AUTENTICAÇÃO
+================================================== */
+
+firebase.auth().onAuthStateChanged(
+  function(user) {
+
+    if (!user) {
+
+      window.location.href =
+        "index.html";
+
+      return;
+    }
+
+
+    userId = user.uid;
+
+
+    carregarSaldo();
+
+  }
+);
+
+
+/* ==================================================
+   CARREGAR SALDO
+================================================== */
+
+function carregarSaldo() {
+
+  if (!userId)
+    return;
+
+
+  carregandoSaldo = true;
+
+
+  firebase.database()
+    .ref(
+      "usuarios/" +
+      userId +
+      "/saldo"
+    )
+    .on(
+      "value",
+      function(snapshot) {
+
+        const valor =
+          snapshot.val();
+
+
+        saldoAtual =
+          Number(valor || 0);
+
+
+        carregandoSaldo = false;
+
+      },
+      function(error) {
+
+        carregandoSaldo = false;
+
+        console.error(
+          "Erro ao carregar saldo:",
+          error
+        );
+
+      }
+    );
+
+}
+
+
+/* ==================================================
+   FORMATAR KZ
+================================================== */
+
+function formatarKz(valor) {
+
+  return Number(valor || 0)
+    .toLocaleString(
+      "pt-AO"
+    ) + " Kz";
+
+}
+
+
+/* ==================================================
+   MENSAGEM
+================================================== */
+
+function mostrarMensagem(
+  texto,
+  tipo
+) {
+
+  const elemento =
+    document.getElementById(
+      "mensagem"
+    );
+
+
+  elemento.className =
+    "mensagem " + tipo;
+
+
+  elemento.innerText =
+    texto;
+
+
+  elemento.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+}
+
+
+/* ==================================================
+   INVESTIR
+================================================== */
+
+async function comprar(
+  botao,
+  nomePacote,
+  preco,
+  dias,
+  rendimento
+) {
+
+  if (!userId) {
+
+    mostrarMensagem(
+      "⚠️ Faça login para realizar um investimento.",
+      "erro"
+    );
+
+    return;
+  }
+
+
+  if (carregandoSaldo) {
+
+    mostrarMensagem(
+      "⏳ Aguarde enquanto verificamos o seu saldo.",
+      "erro"
+    );
+
+    return;
+  }
+
+
+  if (saldoAtual < preco) {
+
+    mostrarMensagem(
+      "⚠️ Saldo insuficiente. Você possui " +
+      formatarKz(saldoAtual) +
+      " e este pacote custa " +
+      formatarKz(preco) +
+      ".",
+      "erro"
+    );
+
+    return;
+  }
+
+
+  const confirmar =
+    confirm(
+      "Confirmar investimento?\n\n" +
+      "Pacote: " + nomePacote + "\n" +
+      "Valor: " + formatarKz(preco) + "\n" +
+      "Período: " + dias + " dias\n" +
+      "Rendimento total: " +
+      formatarKz(rendimento)
+    );
+
+
+  if (!confirmar)
+    return;
+
+
+  botao.disabled = true;
+
+  botao.innerHTML =
+    '<i class="fa-solid fa-spinner fa-spin"></i> PROCESSANDO...';
+
+
+  try {
+
+    /*
+      Revalidamos o saldo diretamente
+      no Firebase antes da operação.
+    */
+
+    const saldoSnapshot =
+      await firebase.database()
+      .ref(
+        "usuarios/" +
+        userId +
+        "/saldo"
+      )
+      .once("value");
+
+
+    const saldoReal =
+      Number(
+        saldoSnapshot.val() || 0
+      );
+
+
+    if (saldoReal < preco) {
+
+      throw new Error(
+        "SALDO_INSUFICIENTE"
+      );
+
+    }
+
+
+    const investimento = {
+
+      nome:
+        nomePacote,
+
+      preco:
+        preco,
+
+      dias:
+        dias,
+
+      rendimento:
+        rendimento,
+
+      inicio:
+        Date.now(),
+
+      status:
+        "ativo"
+
+    };
+
+
+    /*
+      Cria o investimento
+    */
+
+    const investimentoRef =
+      firebase.database()
+      .ref(
+        "usuarios/" +
+        userId +
+        "/investimentos"
+      )
+      .push();
+
+
+    await investimentoRef.set(
+      investimento
+    );
+
+
+    /*
+      Desconta o valor
+      do saldo
+    */
+
+    const novoSaldo =
+      saldoReal - preco;
+
+
+    await firebase.database()
+      .ref(
+        "usuarios/" +
+        userId +
+        "/saldo"
+      )
+      .set(
+        novoSaldo
+      );
+
+
+    saldoAtual =
+      novoSaldo;
+
+
+    mostrarMensagem(
+      "✅ " +
+      nomePacote +
+      " realizado com sucesso! " +
+      "Foram descontados " +
+      formatarKz(preco) +
+      " do seu saldo.",
+      "sucesso"
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "Erro no investimento:",
+      error
+    );
+
+
+    if (
+      error.message ===
+      "SALDO_INSUFICIENTE"
+    ) {
+
+      mostrarMensagem(
+        "⚠️ Saldo insuficiente para realizar este investimento.",
+        "erro"
+      );
+
+    } else {
+
+      mostrarMensagem(
+        "❌ Não foi possível realizar o investimento. Tente novamente.",
+        "erro"
+      );
+
+    }
+
+  } finally {
+
+    botao.disabled = false;
+
+    botao.innerHTML =
+      '<i class="fa-solid fa-arrow-trend-up"></i> &nbsp; INVESTIR';
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>

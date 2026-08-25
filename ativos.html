@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI-INVEST</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #1d4ed8;
+  --blue-dark: #123a9e;
+  --blue-light: #3b82f6;
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+  --green: #16a34a;
+  --red: #dc2626;
+  --text: #172033;
+  --muted: #718096;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59,130,246,.10),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff,
+      #f8fafc
+    );
+
+  min-height: 100vh;
+
+  color: var(--text);
+
+  padding-bottom: 100px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59,130,246,.45),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #123a9e,
+      #1d4ed8 55%,
+      #2563eb
+    );
+
+  color: white;
+
+  padding:
+    28px
+    20px
+    42px;
+
+  border-radius:
+    0
+    0
+    30px
+    30px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(29,78,216,.20);
+}
+
+.header::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.06);
+
+  right: -75px;
+  top: -80px;
+}
+
+.header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 110px;
+  height: 110px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  left: -50px;
+  bottom: -60px;
+}
+
+.header-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 520px;
+
+  margin: auto;
+}
+
+
+/* LOGO */
+
+.logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 25px;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+.logo-icon {
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,.14);
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  border-radius: 11px;
+}
+
+.logo-icon i {
+  color:
+    var(--gold-light);
+
+  font-size: 16px;
+}
+
+.logo span {
+  color:
+    var(--gold-light);
+}
+
+.header h1 {
+  font-size: 26px;
+
+  font-weight: 800;
+
+  margin-bottom: 7px;
+
+  letter-spacing: -.5px;
+}
+
+.header p {
+  color: #dbeafe;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width:
+    calc(100% - 30px);
+
+  max-width: 520px;
+
+  margin:
+    -22px auto 0;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+
+/* =========================
+   RESUMO
+========================= */
+
+.summary {
+  background:
+    rgba(255,255,255,.97);
+
+  border:
+    1px solid
+    rgba(255,255,255,.9);
+
+  border-radius: 21px;
+
+  padding: 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  box-shadow:
+    0 10px 30px
+    rgba(15,23,42,.10);
+
+  margin-bottom: 25px;
+}
+
+.summary-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+.summary-icon {
+  width: 43px;
+  height: 43px;
+
+  border-radius: 13px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+}
+
+.summary-icon i {
+  font-size: 18px;
+}
+
+.summary-label {
+  font-size: 10px;
+
+  color:
+    var(--muted);
+
+  font-weight: 600;
+
+  margin-bottom: 3px;
+}
+
+.summary-title {
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+.summary-badge {
+  background:
+    #ecfdf5;
+
+  color:
+    #16a34a;
+
+  border:
+    1px solid #bbf7d0;
+
+  padding:
+    6px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.section-title {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+}
+
+.section-title h2 {
+  font-size: 17px;
+
+  font-weight: 800;
+}
+
+.section-title span {
+  font-size: 10px;
+
+  color:
+    var(--blue);
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   LISTA
+========================= */
+
+#listaAtivos {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.ativo {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    rgba(255,255,255,.98);
+
+  border:
+    1px solid #e6eaf1;
+
+  border-radius: 21px;
+
+  padding: 19px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.06);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+
+  animation:
+    aparecer .35s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+.ativo:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 12px 28px
+    rgba(15,23,42,.10);
+}
+
+.ativo::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 4px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+.ativo::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(59,130,246,.035);
+
+  right: -40px;
+  top: -40px;
+}
+
+
+/* =========================
+   CARD HEADER
+========================= */
+
+.ativo-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.ativo-name {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.package-icon {
+  width: 39px;
+  height: 39px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+}
+
+.package-icon i {
+  font-size: 15px;
+}
+
+.ativo h2 {
+  font-size: 14px;
+
+  font-weight: 800;
+
+  color:
+    var(--text);
+}
+
+.status {
+  padding:
+    6px 9px;
+
+  border-radius: 20px;
+
+  background:
+    #ecfdf5;
+
+  color:
+    var(--green);
+
+  border:
+    1px solid #bbf7d0;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.info-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 9px;
+
+  margin-bottom: 14px;
+}
+
+.info {
+  background:
+    #f8fafc;
+
+  border:
+    1px solid #eef1f5;
+
+  border-radius: 13px;
+
+  padding:
+    11px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.info-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color:
+    var(--muted);
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+.info-label i {
+  color:
+    var(--blue);
+
+  font-size: 10px;
+}
+
+.info-value {
+  font-size: 12px;
+
+  font-weight: 800;
+
+  color:
+    var(--text);
+}
+
+.info-value.green {
+  color:
+    var(--green);
+}
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+.timer-area {
+  border-top:
+    1px solid #edf0f5;
+
+  padding-top: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.timer-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color:
+    var(--muted);
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+.timer-label i {
+  color:
+    var(--blue);
+
+  font-size: 12px;
+}
+
+.contador {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    7px 11px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color:
+    white;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 4px 12px
+    rgba(29,78,216,.18);
+
+  min-width: 105px;
+
+  text-align: center;
+}
+
+
+/* =========================
+   CONCLUÍDO
+========================= */
+
+.ativo.concluido {
+  border-color:
+    #fecaca;
+}
+
+.ativo.concluido::before {
+  background:
+    linear-gradient(
+      180deg,
+      #ef4444,
+      #dc2626
+    );
+}
+
+.ativo.concluido .status {
+  background:
+    #fef2f2;
+
+  color:
+    var(--red);
+
+  border-color:
+    #fecaca;
+}
+
+.ativo.concluido .contador {
+  background:
+    linear-gradient(
+      135deg,
+      #ef4444,
+      #dc2626
+    );
+}
+
+
+/* =========================
+   VAZIO
+========================= */
+
+.empty-state {
+  background:
+    rgba(255,255,255,.95);
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius: 21px;
+
+  padding:
+    35px 20px;
+
+  text-align: center;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.05);
+}
+
+.empty-icon {
+  width: 58px;
+  height: 58px;
+
+  margin:
+    0 auto 13px;
+
+  border-radius: 17px;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-icon i {
+  font-size: 22px;
+}
+
+.empty-state h3 {
+  font-size: 14px;
+
+  margin-bottom: 5px;
+
+  font-weight: 800;
+}
+
+.empty-state p {
+  color:
+    var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+nav {
+  position: fixed;
+
+  z-index: 100;
+
+  bottom: 12px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  width:
+    calc(100% - 24px);
+
+  max-width: 500px;
+
+  height: 70px;
+
+  background:
+    rgba(15,48,125,.97);
+
+  backdrop-filter:
+    blur(15px);
+
+  border-radius: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  padding: 7px;
+
+  box-shadow:
+    0 10px 35px
+    rgba(15,23,42,.25);
+}
+
+nav button {
+  border: none;
+
+  background: transparent;
+
+  color: #c7d7fa;
+
+  width: 31%;
+
+  height: 57px;
+
+  border-radius: 16px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  transition: .25s;
+}
+
+nav button i {
+  font-size: 18px;
+
+  margin-bottom: 5px;
+
+  opacity: .85;
+}
+
+nav button.active {
+  background:
+    white;
+
+  color:
+    var(--blue);
+
+  box-shadow:
+    0 5px 15px
+    rgba(0,0,0,.15);
+}
+
+nav button:hover:not(.active) {
+  background:
+    rgba(255,255,255,.08);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 360px) {
+
+  .info-grid {
+    gap: 7px;
+  }
+
+  .info {
+    padding: 9px;
+  }
+
+  .info-value {
+    font-size: 11px;
+  }
+
+  .contador {
+    min-width: 95px;
+
+    font-size: 8px;
+  }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+  <div class="header-content">
+
+    <div class="logo">
+
+      <div class="logo-icon">
+        <i class="fa-solid fa-chart-line"></i>
+      </div>
+
+      LIBRAKI <span>INVEST</span>
+
+    </div>
+
+    <h1>
+      Meus Investimentos
+    </h1>
+
+    <p>
+      Acompanhe seus investimentos ativos
+      em tempo real.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+
+  <div class="summary">
+
+    <div class="summary-left">
+
+      <div class="summary-icon">
+        <i class="fa-solid fa-chart-pie"></i>
+      </div>
+
+      <div>
+
+        <div class="summary-label">
+          CARTEIRA
+        </div>
+
+        <div class="summary-title">
+          Investimentos Ativos
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="summary-badge">
+
+      <i class="fa-solid fa-circle"></i>
+
+      ATIVO
+
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+
+    <h2>
+      Seus investimentos
+    </h2>
+
+    <span id="statusFirebase">
+      Carregando...
+    </span>
+
+  </div>
+
+
+  <div id="listaAtivos"></div>
+
+
+</main>
+
+
+<nav>
+
+  <button
+    onclick="location.href='tela.html'"
+  >
+
+    <i class="fa-solid fa-house"></i>
+
+    Home
+
+  </button>
+
+
+  <button
+    class="active"
+    onclick="location.href='ativos.html'"
+  >
+
+    <i class="fa-solid fa-chart-line"></i>
+
+    Ativos
+
+  </button>
+
+
+  <button
+    onclick="logout()"
+  >
+
+    <i class="fa-solid fa-right-from-bracket"></i>
+
+    Sair
+
+  </button>
+
+</nav>
+
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+
+<script>
+
+/* ==================================================
+   FIREBASE PREDITOR LUCIFER
+================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+  authDomain:
+    "preditor-lucifer.firebaseapp.com",
+
+  databaseURL:
+    "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+  projectId:
+    "preditor-lucifer",
+
+  storageBucket:
+    "preditor-lucifer.firebasestorage.app",
+
+  messagingSenderId:
+    "409997785375",
+
+  appId:
+    "1:409997785375:android:d4c28097f018e30ae5182a"
+
+};
+
+
+/* Inicializar Firebase */
+
+if (!firebase.apps.length) {
+
+  firebase.initializeApp(
+    firebaseConfig
+  );
+
+}
+
+
+const db =
+  firebase.database();
+
+
+const auth =
+  firebase.auth();
+
+
+const listaEl =
+  document.getElementById(
+    "listaAtivos"
+  );
+
+
+const statusFirebase =
+  document.getElementById(
+    "statusFirebase"
+  );
+
+
+let userId = null;
+
+
+/* ==================================================
+   AUTENTICAÇÃO
+================================================== */
+
+auth.onAuthStateChanged(
+  function(user) {
+
+    if (!user) {
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    userId =
+      user.uid;
+
+
+    statusFirebase.innerText =
+      "Em acompanhamento";
+
+
+    carregarInvestimentos();
+
+  }
+);
+
+
+/* ==================================================
+   CARREGAR INVESTIMENTOS
+================================================== */
+
+function carregarInvestimentos() {
+
+  if (!userId) {
+    return;
+  }
+
+
+  const referencia =
+    db.ref(
+      "usuarios/" +
+      userId +
+      "/investimentos"
+    );
+
+
+  referencia.on(
+    "value",
+    function(snapshot) {
+
+      listaEl.innerHTML = "";
+
+
+      let possuiAtivos =
+        false;
+
+
+      let contadorPacote =
+        1;
+
+
+      const agora =
+        Date.now();
+
+
+      snapshot.forEach(
+        function(child) {
+
+          const inv =
+            child.val() || {};
+
+
+          const key =
+            child.key;
+
+
+          /*
+           * Aceita somente investimentos
+           * ativos.
+           */
+
+          if (
+            String(inv.status || "")
+              .toLowerCase()
+              !== "ativo"
+          ) {
+
+            return;
+
+          }
+
+
+          possuiAtivos =
+            true;
+
+
+          /*
+           * Compatibilidade:
+           * alguns registros podem ter
+           * inicio em número.
+           */
+
+          const inicio =
+            Number(inv.inicio);
+
+
+          const dias =
+            Number(inv.dias);
+
+
+          const rendimento =
+            Number(inv.rendimento) || 0;
+
+
+          const preco =
+            Number(inv.preco) || 0;
+
+
+          /*
+           * Se os dados necessários
+           * não forem válidos, ainda
+           * mostramos o investimento.
+           */
+
+          let tempoTotal =
+            0;
+
+
+          let tempoRestante =
+            0;
+
+
+          if (
+            Number.isFinite(inicio) &&
+            Number.isFinite(dias) &&
+            dias > 0
+          ) {
+
+            tempoTotal =
+              dias *
+              24 *
+              60 *
+              60 *
+              1000;
+
+
+            tempoRestante =
+              (
+                inicio +
+                tempoTotal
+              ) -
+              agora;
+
+          }
+
+
+          /*
+           * Se o investimento terminou,
+           * finaliza uma única vez.
+           */
+
+          if (
+            tempoTotal > 0 &&
+            tempoRestante <= 0
+          ) {
+
+            finalizarInvestimento(
+              key,
+              rendimento
+            );
+
+            return;
+
+          }
+
+
+          criarCardInvestimento(
+            key,
+            inv,
+            contadorPacote,
+            inicio,
+            tempoTotal,
+            rendimento,
+            preco
+          );
+
+
+          contadorPacote++;
+
+        }
+      );
+
+
+      if (!possuiAtivos) {
+
+        mostrarVazio();
+
+      }
+
+    },
+
+    function(error) {
+
+      console.error(
+        "Erro ao carregar investimentos:",
+        error
+      );
+
+
+      statusFirebase.innerText =
+        "Erro ao carregar";
+
+
+      listaEl.innerHTML = `
+
+        <div class="empty-state">
+
+          <div class="empty-icon">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+          </div>
+
+          <h3>
+            Não foi possível carregar
+          </h3>
+
+          <p>
+            Verifique sua conexão e tente novamente.
+          </p>
+
+        </div>
+
+      `;
+
+    }
+  );
+
+}
+
+
+/* ==================================================
+   CRIAR CARD
+================================================== */
+
+function criarCardInvestimento(
+  key,
+  inv,
+  contadorPacote,
+  inicio,
+  tempoTotal,
+  rendimento,
+  preco
+) {
+
+
+  const div =
+    document.createElement(
+      "div"
+    );
+
+
+  div.className =
+    "ativo";
+
+
+  let rendimentoDiario =
+    0;
+
+
+  const dias =
+    Number(inv.dias) || 0;
+
+
+  if (dias > 0) {
+
+    rendimentoDiario =
+      Math.floor(
+        rendimento / dias
+      );
+
+  }
+
+
+  div.innerHTML = `
+
+    <div class="ativo-header">
+
+      <div class="ativo-name">
+
+        <div class="package-icon">
+
+          <i class="fa-solid fa-box"></i>
+
+        </div>
+
+        <h2>
+          ${inv.nome
+            ? escapeHTML(inv.nome)
+            : "PACOTE " + contadorPacote}
+        </h2>
+
+      </div>
+
+      <div class="status">
+
+        <i class="fa-solid fa-circle"></i>
+
+        ATIVO
+
+      </div>
+
+    </div>
+
+
+    <div class="info-grid">
+
+
+      <div class="info">
+
+        <div class="info-label">
+
+          <i class="fa-solid fa-wallet"></i>
+
+          Investimento
+
+        </div>
+
+        <div class="info-value">
+
+          ${formatarNumero(preco)}
+          KZ
+
+        </div>
+
+      </div>
+
+
+      <div class="info">
+
+        <div class="info-label">
+
+          <i class="fa-solid fa-chart-line"></i>
+
+          Rendimento
+
+        </div>
+
+        <div class="info-value green">
+
+          ${formatarNumero(rendimento)}
+          KZ
+
+        </div>
+
+      </div>
+
+
+      <div class="info">
+
+        <div class="info-label">
+
+          <i class="fa-solid fa-calendar-day"></i>
+
+          Período
+
+        </div>
+
+        <div class="info-value">
+
+          ${dias}
+          ${dias === 1 ? "dia" : "dias"}
+
+        </div>
+
+      </div>
+
+
+      <div class="info">
+
+        <div class="info-label">
+
+          <i class="fa-solid fa-coins"></i>
+
+          Diário
+
+        </div>
+
+        <div class="info-value green">
+
+          ${formatarNumero(rendimentoDiario)}
+          KZ
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="timer-area">
+
+      <div class="timer-label">
+
+        <i class="fa-solid fa-clock"></i>
+
+        Tempo restante
+
+      </div>
+
+      <div class="contador">
+
+        ${tempoTotal > 0
+          ? "Calculando..."
+          : "Em andamento"}
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  listaEl.appendChild(
+    div
+  );
+
+
+  const contador =
+    div.querySelector(
+      ".contador"
+    );
+
+
+  if (
+    tempoTotal > 0 &&
+    inicio > 0
+  ) {
+
+    atualizarContador(
+
+      contador,
+
+      inicio,
+
+      tempoTotal,
+
+      function() {
+
+        div.classList.add(
+          "concluido"
+        );
+
+
+        contador.textContent =
+          "Concluído";
+
+
+        finalizarInvestimento(
+          key,
+          rendimento
+        );
+
+      }
+
+    );
+
+  } else {
+
+    contador.textContent =
+      "Ativo";
+
+  }
+
+}
+
+
+/* ==================================================
+   CONTADOR
+================================================== */
+
+function atualizarContador(
+  el,
+  inicio,
+  duracao,
+  aoTerminar
+) {
+
+
+  let finalizado =
+    false;
+
+
+  function atualizar() {
+
+    const agora =
+      Date.now();
+
+
+    const final =
+      inicio +
+      duracao;
+
+
+    const restante =
+      final -
+      agora;
+
+
+    if (
+      restante <= 0
+    ) {
+
+      if (!finalizado) {
+
+        finalizado =
+          true;
+
+
+        el.textContent =
+          "Concluído";
+
+
+        aoTerminar();
+
+      }
+
+
+      return;
+
+    }
+
+
+    const segundosTotais =
+      Math.floor(
+        restante / 1000
+      );
+
+
+    const dias =
+      Math.floor(
+        segundosTotais /
+        86400
+      );
+
+
+    const horas =
+      Math.floor(
+        (
+          segundosTotais %
+          86400
+        ) / 3600
+      );
+
+
+    const minutos =
+      Math.floor(
+        (
+          segundosTotais %
+          3600
+        ) / 60
+      );
+
+
+    const segundos =
+      segundosTotais %
+      60;
+
+
+    if (dias > 0) {
+
+      el.textContent =
+        `${dias}d ${pad(horas)}h ${pad(minutos)}m`;
+
+    }
+
+    else {
+
+      el.textContent =
+        `${pad(horas)}h ${pad(minutos)}m ${pad(segundos)}s`;
+
+    }
+
+  }
+
+
+  atualizar();
+
+
+  const intervalo =
+    setInterval(
+      function() {
+
+        atualizar();
+
+
+        if (finalizado) {
+
+          clearInterval(
+            intervalo
+          );
+
+        }
+
+      },
+      1000
+    );
+
+}
+
+
+/* ==================================================
+   FINALIZAR INVESTIMENTO
+================================================== */
+
+function finalizarInvestimento(
+  key,
+  rendimento
+) {
+
+
+  if (!userId) {
+    return;
+  }
+
+
+  const investimentoRef =
+    db.ref(
+      "usuarios/" +
+      userId +
+      "/investimentos/" +
+      key
+    );
+
+
+  /*
+   * Transação:
+   * impede que dois processos
+   * creditem o mesmo investimento.
+   */
+
+  investimentoRef.transaction(
+    function(inv) {
+
+      if (!inv) {
+        return;
+      }
+
+
+      if (
+        String(inv.status || "")
+          .toLowerCase()
+          !== "ativo"
+      ) {
+
+        return;
+
+      }
+
+
+      inv.status =
+        "concluído";
+
+
+      inv.finalizadoEm =
+        new Date().toISOString();
+
+
+      return inv;
+
+    },
+
+    function(error, committed) {
+
+      if (error) {
+
+        console.error(
+          "Erro ao finalizar:",
+          error
+        );
+
+        return;
+
+      }
+
+
+      /*
+       * Só adiciona o rendimento
+       * se esta execução realmente
+       * alterou o investimento.
+       */
+
+      if (!committed) {
+        return;
+      }
+
+
+      const saldoRef =
+        db.ref(
+          "usuarios/" +
+          userId +
+          "/saldo"
+        );
+
+
+      saldoRef.transaction(
+        function(saldo) {
+
+          return (
+            Number(saldo) || 0
+          ) +
+          (
+            Number(rendimento) || 0
+          );
+
+        },
+
+        function(errorSaldo) {
+
+          if (errorSaldo) {
+
+            console.error(
+              "Erro ao atualizar saldo:",
+              errorSaldo
+            );
+
+            return;
+
+          }
+
+
+          console.log(
+            "Investimento finalizado e rendimento creditado."
+          );
+
+        }
+
+      );
+
+    }
+  );
+
+}
+
+
+/* ==================================================
+   ESTADO VAZIO
+================================================== */
+
+function mostrarVazio() {
+
+  listaEl.innerHTML = `
+
+    <div class="empty-state">
+
+      <div class="empty-icon">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+      </div>
+
+      <h3>
+        Nenhum investimento ativo
+      </h3>
+
+      <p>
+        Seus investimentos ativos
+        aparecerão aqui automaticamente.
+      </p>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   FORMATAÇÃO
+================================================== */
+
+function formatarNumero(numero) {
+
+  return Number(
+    numero || 0
+  ).toLocaleString(
+    "pt-AO"
+  );
+
+}
+
+
+function pad(numero) {
+
+  return String(
+    numero
+  ).padStart(
+    2,
+    "0"
+  );
+
+}
+
+
+/* ==================================================
+   SEGURANÇA DO HTML
+================================================== */
+
+function escapeHTML(valor) {
+
+  return String(valor)
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* ==================================================
+   LOGOUT
+================================================== */
+
+function logout() {
+
+  auth.signOut()
+    .then(
+      function() {
+
+        window.location.href =
+          "index.html";
+
+      }
+    )
+    .catch(
+      function(error) {
+
+        console.error(
+          "Erro ao sair:",
+          error
+        );
+
+      }
+    );
+
+}
+
+</script>
+
+</body>
+
+</html>

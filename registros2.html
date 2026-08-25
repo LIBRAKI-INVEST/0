@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LIBRAKI-INVEST</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+
+  --blue: #1d4ed8;
+  --blue-dark: #123a9e;
+  --blue-light: #3b82f6;
+
+  --gold: #f59e0b;
+  --gold-light: #fbbf24;
+
+  --green: #16a34a;
+  --green-bg: #ecfdf5;
+
+  --yellow: #d97706;
+  --yellow-bg: #fffbeb;
+
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+
+  --text: #172033;
+  --muted: #718096;
+
+  --white: #ffffff;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59,130,246,.10),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #eef4ff,
+      #f8fafc
+    );
+
+  min-height: 100vh;
+
+  color: var(--text);
+
+  padding-bottom: 30px;
+
+  animation: pageIn .45s ease;
+}
+
+
+@keyframes pageIn {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translateY(10px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(59,130,246,.45),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #123a9e,
+      #1d4ed8 55%,
+      #2563eb
+    );
+
+  color: white;
+
+  padding:
+    24px
+    20px
+    38px;
+
+  border-radius:
+    0
+    0
+    30px
+    30px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(29,78,216,.20);
+}
+
+
+header::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.06);
+
+  right: -70px;
+
+  top: -80px;
+}
+
+
+header::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  left: -45px;
+
+  bottom: -55px;
+}
+
+
+.header-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 520px;
+
+  margin: auto;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 23px;
+
+  font-size: 20px;
+
+  font-weight: 800;
+}
+
+
+.logo-icon {
+
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    rgba(255,255,255,.14);
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  border-radius: 11px;
+}
+
+
+.logo-icon i {
+
+  color:
+    var(--gold-light);
+
+  font-size: 16px;
+}
+
+
+.logo span {
+
+  color:
+    var(--gold-light);
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+header h1 {
+
+  font-size: 25px;
+
+  font-weight: 800;
+
+  margin-bottom: 7px;
+
+  letter-spacing: -.5px;
+}
+
+
+header p {
+
+  color:
+    #dbeafe;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+main {
+
+  width:
+    calc(100% - 30px);
+
+  max-width: 520px;
+
+  margin:
+    -20px auto 0;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+
+  background:
+    rgba(255,255,255,.98);
+
+  border:
+    1px solid #e6eaf1;
+
+  border-radius: 21px;
+
+  padding: 19px;
+
+  margin-bottom: 15px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.06);
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.card-header {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 5px;
+}
+
+
+.card-icon {
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 11px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  font-size: 15px;
+}
+
+
+.card-title {
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  color:
+    var(--text);
+}
+
+
+.card-description {
+
+  color:
+    var(--muted);
+
+  font-size: 10px;
+
+  line-height: 1.5;
+
+  margin-bottom: 17px;
+
+  padding-left: 48px;
+}
+
+
+/* =========================
+   RESUMO
+========================= */
+
+.resumo {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin-bottom: 15px;
+}
+
+
+.resumo-box {
+
+  background:
+    #f8fafc;
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius: 13px;
+
+  padding:
+    11px 5px;
+
+  text-align: center;
+}
+
+
+.resumo-box i {
+
+  display: block;
+
+  color:
+    var(--blue);
+
+  font-size: 13px;
+
+  margin-bottom: 5px;
+}
+
+
+.resumo-box span {
+
+  display: block;
+
+  color:
+    var(--muted);
+
+  font-size: 8px;
+
+  margin-bottom: 3px;
+}
+
+
+.resumo-box strong {
+
+  font-size: 12px;
+
+  color:
+    var(--text);
+}
+
+
+/* =========================
+   LISTA
+========================= */
+
+#retiradasPendentes {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+
+/* =========================
+   ITEM
+========================= */
+
+.item {
+
+  position: relative;
+
+  background:
+    #ffffff;
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius: 17px;
+
+  padding: 16px;
+
+  overflow: hidden;
+
+  transition:
+    transform .2s,
+    box-shadow .2s;
+}
+
+
+.item::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  width: 4px;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+
+.item:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(15,23,42,.07);
+}
+
+
+/* =========================
+   TOPO
+========================= */
+
+.item-top {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+
+/* =========================
+   VALOR RECEBIDO
+========================= */
+
+.valor {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  color:
+    var(--text);
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+  min-width: 0;
+}
+
+
+.valor-label {
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  color:
+    var(--muted);
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    .3px;
+}
+
+
+.valor-principal {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.valor-principal i {
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background:
+    #eff6ff;
+
+  color:
+    var(--blue);
+
+  font-size: 14px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  padding:
+    7px 10px;
+
+  border-radius:
+    20px;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  white-space:
+    nowrap;
+
+  flex-shrink: 0;
+}
+
+
+.em-analise {
+
+  background:
+    var(--yellow-bg);
+
+  color:
+    var(--yellow);
+
+  border:
+    1px solid #fde68a;
+}
+
+
+.pago {
+
+  background:
+    var(--green-bg);
+
+  color:
+    var(--green);
+
+  border:
+    1px solid #bbf7d0;
+}
+
+
+.rejeitado {
+
+  background:
+    var(--red-bg);
+
+  color:
+    var(--red);
+
+  border:
+    1px solid #fecaca;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.item-body {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  padding-top: 11px;
+
+  border-top:
+    1px solid #f0f2f6;
+
+  font-size: 10px;
+
+  color:
+    var(--muted);
+}
+
+
+.item-body div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.item-body i {
+
+  width: 20px;
+
+  color:
+    var(--blue);
+
+  text-align: center;
+}
+
+
+/* =========================
+   LINHA ID + VALOR DE SAQUE + TAXA
+========================= */
+
+.id-taxa-row {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  width: 100%;
+}
+
+
+.id-info {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
+
+  flex: 1;
+}
+
+
+.id-info i {
+
+  flex-shrink: 0;
+}
+
+
+.id-text {
+
+  overflow: hidden;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+}
+
+
+/* =========================
+   GRUPO VALOR + TAXA
+========================= */
+
+.financeiro-info {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 6px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   VALOR DE SAQUE
+========================= */
+
+.saque-info {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+
+  padding:
+    5px 7px;
+
+  border-radius: 8px;
+
+  background:
+    #f8fafc;
+
+  border:
+    1px solid #e2e8f0;
+
+  color:
+    #334155;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  white-space:
+    nowrap;
+}
+
+
+.saque-info i {
+
+  width: auto;
+
+  color:
+    var(--blue);
+
+  font-size: 8px;
+}
+
+
+/* =========================
+   TAXA
+========================= */
+
+.taxa-info {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+
+  padding:
+    5px 7px;
+
+  border-radius: 8px;
+
+  background:
+    #eff6ff;
+
+  border:
+    1px solid #dbeafe;
+
+  color:
+    #1e40af;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  white-space:
+    nowrap;
+}
+
+
+.taxa-info i {
+
+  width: auto;
+
+  color:
+    var(--blue);
+
+  font-size: 8px;
+}
+
+
+/* =========================
+   TIPO DE SAQUE
+========================= */
+
+.metodo-box {
+
+  margin-top: 10px;
+
+  padding:
+    11px 12px;
+
+  border:
+    1px solid #dbeafe;
+
+  background:
+    #eff6ff;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  color:
+    #1e40af;
+}
+
+
+.metodo-box i {
+
+  color:
+    var(--blue);
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   SEM RESULTADOS
+========================= */
+
+.sem-resultados {
+
+  background:
+    #ffffff;
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius:
+    17px;
+
+  padding:
+    35px 20px;
+
+  text-align:
+    center;
+
+  color:
+    var(--muted);
+
+  font-size:
+    11px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.05);
+}
+
+
+.sem-resultados i {
+
+  display: block;
+
+  font-size: 28px;
+
+  color:
+    #94a3b8;
+
+  margin-bottom: 10px;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+
+  text-align:
+    center;
+
+  padding:
+    35px 20px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    11px;
+}
+
+
+.loading i {
+
+  display: block;
+
+  font-size:
+    24px;
+
+  color:
+    var(--blue);
+
+  margin-bottom:
+    10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+  text-align:
+    center;
+
+  color:
+    #94a3b8;
+
+  font-size:
+    9px;
+
+  padding:
+    5px 20px 20px;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 400px) {
+
+  header h1 {
+
+    font-size:
+      23px;
+
+  }
+
+
+  main {
+
+    width:
+      calc(100% - 22px);
+
+  }
+
+
+  .card {
+
+    padding:
+      16px;
+
+  }
+
+
+  .valor {
+
+    font-size:
+      16px;
+
+  }
+
+
+  .status {
+
+    font-size:
+      8px;
+
+    padding:
+      6px 8px;
+
+  }
+
+
+  .financeiro-info {
+
+    gap: 4px;
+
+  }
+
+
+  .saque-info,
+  .taxa-info {
+
+    font-size:
+      6.5px;
+
+    padding:
+      5px 5px;
+
+  }
+
+
+  .saque-info i,
+  .taxa-info i {
+
+    font-size:
+      7px;
+
+  }
+
+}
+
+
+@media (max-width: 350px) {
+
+  .item {
+
+    padding:
+      13px;
+
+  }
+
+
+  .id-taxa-row {
+
+    gap:
+      5px;
+
+  }
+
+
+  .financeiro-info {
+
+    gap:
+      3px;
+
+  }
+
+
+  .saque-info,
+  .taxa-info {
+
+    font-size:
+      6px;
+
+    padding:
+      4px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="header-content">
+
+    <div class="logo">
+
+      <div class="logo-icon">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+      </div>
+
+      LIBRAKI <span>INVEST</span>
+
+    </div>
+
+
+    <h1>
+      Histórico de Retiradas
+    </h1>
+
+
+    <p>
+      Consulte o histórico e acompanhe
+      o estado das suas retiradas.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <div class="card">
+
+    <div class="card-header">
+
+      <div class="card-icon">
+
+        <i class="fa-solid fa-money-bill-transfer"></i>
+
+      </div>
+
+
+      <div class="card-title">
+
+        Suas retiradas
+
+      </div>
+
+    </div>
+
+
+    <div class="card-description">
+
+      Aqui aparecem todas as retiradas
+      realizadas na sua conta.
+
+    </div>
+
+
+    <div class="resumo">
+
+      <div class="resumo-box">
+
+        <i class="fa-solid fa-list"></i>
+
+        <span>Total</span>
+
+        <strong id="totalRetiradas">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="resumo-box">
+
+        <i class="fa-solid fa-clock"></i>
+
+        <span>Em análise</span>
+
+        <strong id="totalAnalise">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="resumo-box">
+
+        <i class="fa-solid fa-check-circle"></i>
+
+        <span>Pagas</span>
+
+        <strong id="totalPagas">
+          0
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div id="retiradasPendentes">
+
+      <div class="loading">
+
+        <i class="fa-solid fa-spinner fa-spin"></i>
+
+        Carregando histórico...
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  LIBRAKI-INVEST © 2026
+
+</footer>
+
+
+<script>
+
+
+/* ==================================================
+   CONFIGURAÇÃO FIREBASE
+================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDPDnRWP-r28nHHQRT47zGASIyWzvS13Fw",
+
+  authDomain:
+    "preditor-lucifer.firebaseapp.com",
+
+  databaseURL:
+    "https://preditor-lucifer-default-rtdb.firebaseio.com",
+
+  projectId:
+    "preditor-lucifer",
+
+  storageBucket:
+    "preditor-lucifer.firebasestorage.app",
+
+  messagingSenderId:
+    "409997785375"
+
+};
+
+
+/* ==================================================
+   INICIALIZAR FIREBASE
+================================================== */
+
+if (!firebase.apps.length) {
+
+  firebase.initializeApp(
+    firebaseConfig
+  );
+
+}
+
+
+const auth =
+  firebase.auth();
+
+
+const db =
+  firebase.database();
+
+
+/* ==================================================
+   ELEMENTOS
+================================================== */
+
+const container =
+  document.getElementById(
+    "retiradasPendentes"
+  );
+
+
+const totalRetiradas =
+  document.getElementById(
+    "totalRetiradas"
+  );
+
+
+const totalAnalise =
+  document.getElementById(
+    "totalAnalise"
+  );
+
+
+const totalPagas =
+  document.getElementById(
+    "totalPagas"
+  );
+
+
+/* ==================================================
+   ESCAPAR HTML
+================================================== */
+
+function escaparHTML(valor) {
+
+  return String(
+    valor ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* ==================================================
+   FORMATAR KZ
+================================================== */
+
+function formatarKz(valor) {
+
+  return Number(
+    valor || 0
+  ).toLocaleString(
+    "pt-AO",
+    {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }
+  ) + " Kz";
+
+}
+
+
+/* ==================================================
+   NORMALIZAR MÉTODO
+================================================== */
+
+function normalizarMetodo(
+  metodo
+) {
+
+  const valor =
+    String(
+      metodo || ""
+    )
+    .trim()
+    .toUpperCase();
+
+
+  if (
+    valor === "PAY PAY" ||
+    valor === "PAYPAY"
+  ) {
+
+    return "PAY PAY";
+
+  }
+
+
+  return "BANCO";
+
+}
+
+
+/* ==================================================
+   NORMALIZAR STATUS
+================================================== */
+
+function normalizarStatus(
+  status
+) {
+
+  const s =
+    String(
+      status || ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+  if (
+    s === "pago" ||
+    s === "paga" ||
+    s === "aprovado" ||
+    s === "aprovada" ||
+    s.includes("pago") ||
+    s.includes("aprovado")
+  ) {
+
+    return "Pago";
+
+  }
+
+
+  if (
+    s === "rejeitado" ||
+    s === "rejeitada" ||
+    s === "reprovado" ||
+    s === "cancelado" ||
+    s === "cancelada" ||
+    s.includes("rejeit") ||
+    s.includes("reprov") ||
+    s.includes("cancel")
+  ) {
+
+    return "Rejeitado";
+
+  }
+
+
+  return "Em análise";
+
+}
+
+
+/* ==================================================
+   CLASSE STATUS
+================================================== */
+
+function getStatusClass(
+  status
+) {
+
+  if (
+    status === "Pago"
+  ) {
+
+    return "pago";
+
+  }
+
+
+  if (
+    status === "Rejeitado"
+  ) {
+
+    return "rejeitado";
+
+  }
+
+
+  return "em-analise";
+
+}
+
+
+/* ==================================================
+   ÍCONE STATUS
+================================================== */
+
+function getStatusIcon(
+  status
+) {
+
+  if (
+    status === "Pago"
+  ) {
+
+    return `
+      <i class="fa-solid fa-circle-check"></i>
+    `;
+
+  }
+
+
+  if (
+    status === "Rejeitado"
+  ) {
+
+    return `
+      <i class="fa-solid fa-circle-xmark"></i>
+    `;
+
+  }
+
+
+  return `
+    <i class="fa-solid fa-clock"></i>
+  `;
+
+}
+
+
+/* ==================================================
+   FORMATAR DATA
+================================================== */
+
+function formatarData(
+  valor
+) {
+
+  if (
+    valor === null ||
+    valor === undefined ||
+    valor === ""
+  ) {
+
+    return "Data não disponível";
+
+  }
+
+
+  const data =
+    new Date(valor);
+
+
+  if (
+    isNaN(
+      data.getTime()
+    )
+  ) {
+
+    return "Data não disponível";
+
+  }
+
+
+  const dia =
+    String(
+      data.getDate()
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  const mes =
+    String(
+      data.getMonth() + 1
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  const ano =
+    data.getFullYear();
+
+
+  const hora =
+    String(
+      data.getHours()
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  const minuto =
+    String(
+      data.getMinutes()
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  return `${dia}/${mes}/${ano} ${hora}:${minuto}`;
+
+}
+
+
+/* ==================================================
+   OBTER TIMESTAMP
+================================================== */
+
+function obterTimestamp(
+  data
+) {
+
+  if (
+    typeof data.timestamp === "number"
+  ) {
+
+    return data.timestamp;
+
+  }
+
+
+  if (
+    data.timestamp &&
+    !isNaN(
+      Number(data.timestamp)
+    )
+  ) {
+
+    return Number(
+      data.timestamp
+    );
+
+  }
+
+
+  if (
+    data.data
+  ) {
+
+    const d =
+      new Date(
+        data.data
+      );
+
+
+    if (
+      !isNaN(
+        d.getTime()
+      )
+    ) {
+
+      return d.getTime();
+
+    }
+
+  }
+
+
+  return 0;
+
+}
+
+
+/* ==================================================
+   CALCULAR DADOS DO SAQUE
+================================================== */
+
+function calcularDadosSaque(
+  data
+) {
+
+  /*
+   * Valor original solicitado.
+   */
+
+  let valorSolicitado =
+    Number(
+      data.valorRetirada ??
+      data.valor ??
+      data.valorSaque ??
+      0
+    );
+
+
+  /*
+   * Taxa gravada no Firebase.
+   */
+
+  let taxa =
+    Number(
+      data.taxa ??
+      data.taxaSaque ??
+      0
+    );
+
+
+  /*
+   * Valor efetivamente recebido.
+   */
+
+  let valorLiquido =
+    Number(
+      data.valorLiquido ??
+      data.valorLiquidoRecebido ??
+      data.valorRecebido ??
+      data.recebido ??
+      0
+    );
+
+
+  /*
+   * Caso não exista taxa válida,
+   * calcula 3%.
+   */
+
+  if (
+    !Number.isFinite(taxa) ||
+    taxa < 0
+  ) {
+
+    taxa =
+      valorSolicitado * 0.03;
+
+  }
+
+
+  /*
+   * Caso o valor recebido não esteja gravado,
+   * calcula automaticamente.
+   */
+
+  if (
+    !Number.isFinite(valorLiquido) ||
+    valorLiquido <= 0
+  ) {
+
+    valorLiquido =
+      Math.max(
+        0,
+        valorSolicitado - taxa
+      );
+
+  }
+
+
+  return {
+
+    valorSolicitado:
+      valorSolicitado,
+
+    taxa:
+      taxa,
+
+    percentualTaxa:
+      3,
+
+    valorLiquido:
+      valorLiquido
+
+  };
+
+}
+
+
+/* ==================================================
+   AUTENTICAÇÃO
+================================================== */
+
+auth.onAuthStateChanged(
+  function(user) {
+
+
+    if (!user) {
+
+      container.innerHTML = `
+
+        <div class="sem-resultados">
+
+          <i class="fa-solid fa-lock"></i>
+
+          Faça login para consultar
+          o histórico de retiradas.
+
+        </div>
+
+      `;
+
+
+      setTimeout(
+        function() {
+
+          window.location.href =
+            "index.html";
+
+        },
+        1200
+      );
+
+
+      return;
+
+    }
+
+
+    carregarRetiradas(
+      user.uid
+    );
+
+  }
+);
+
+
+/* ==================================================
+   CARREGAR RETIRADAS
+   EM TEMPO REAL
+================================================== */
+
+function carregarRetiradas(
+  uid
+) {
+
+  db.ref("retiradas")
+    .on(
+      "value",
+      function(snapshot) {
+
+
+        const retiradas =
+          [];
+
+
+        if (
+          snapshot.exists()
+        ) {
+
+          snapshot.forEach(
+            function(child) {
+
+
+              const retirada =
+                child.val();
+
+
+              if (
+                retirada &&
+                retirada.userId === uid
+              ) {
+
+                retiradas.push({
+
+                  id:
+                    child.key,
+
+                  ...retirada
+
+                });
+
+              }
+
+            }
+          );
+
+        }
+
+
+        retiradas.sort(
+          function(a, b) {
+
+            return (
+              obterTimestamp(b) -
+              obterTimestamp(a)
+            );
+
+          }
+        );
+
+
+        atualizarResumo(
+          retiradas
+        );
+
+
+        renderizarRetiradas(
+          retiradas
+        );
+
+      },
+
+
+      function(error) {
+
+        console.error(
+          "Erro Firebase:",
+          error
+        );
+
+
+        container.innerHTML = `
+
+          <div class="sem-resultados">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            Não foi possível carregar
+            o histórico de retiradas.
+
+          </div>
+
+        `;
+
+      }
+    );
+
+}
+
+
+/* ==================================================
+   ATUALIZAR RESUMO
+================================================== */
+
+function atualizarResumo(
+  retiradas
+) {
+
+  let analise = 0;
+
+  let pagas = 0;
+
+
+  retiradas.forEach(
+    function(retirada) {
+
+
+      const status =
+        normalizarStatus(
+          retirada.status
+        );
+
+
+      if (
+        status === "Em análise"
+      ) {
+
+        analise++;
+
+      }
+
+
+      if (
+        status === "Pago"
+      ) {
+
+        pagas++;
+
+      }
+
+    }
+  );
+
+
+  totalRetiradas.textContent =
+    retiradas.length;
+
+
+  totalAnalise.textContent =
+    analise;
+
+
+  totalPagas.textContent =
+    pagas;
+
+}
+
+
+/* ==================================================
+   RENDERIZAR RETIRADAS
+================================================== */
+
+function renderizarRetiradas(
+  retiradas
+) {
+
+
+  if (
+    retiradas.length === 0
+  ) {
+
+    container.innerHTML = `
+
+      <div class="sem-resultados">
+
+        <i class="fa-solid fa-clock-rotate-left"></i>
+
+        Nenhuma retirada encontrada.
+
+        <br><br>
+
+        As suas futuras solicitações
+        aparecerão aqui.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  let html = "";
+
+
+  retiradas.forEach(
+    function(data) {
+
+
+      const status =
+        normalizarStatus(
+          data.status
+        );
+
+
+      const statusClass =
+        getStatusClass(
+          status
+        );
+
+
+      const statusIcon =
+        getStatusIcon(
+          status
+        );
+
+
+      const metodo =
+        normalizarMetodo(
+          data.metodo
+        );
+
+
+      const dadosSaque =
+        calcularDadosSaque(
+          data
+        );
+
+
+      const timestamp =
+        data.timestamp ??
+        data.data;
+
+
+      const dataHora =
+        formatarData(
+          timestamp
+        );
+
+
+      const id =
+        data.id
+          ? data.id.slice(-8)
+          : "N/A";
+
+
+      /* =========================
+         MÉTODO
+      ========================= */
+
+      let metodoHTML = "";
+
+
+      if (
+        metodo === "BANCO"
+      ) {
+
+        metodoHTML = `
+
+          <div class="metodo-box">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            SAQUE VIA BANCO
+
+          </div>
+
+        `;
+
+      } else {
+
+        metodoHTML = `
+
+          <div class="metodo-box">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            SAQUE VIA PAY PAY
+
+          </div>
+
+        `;
+
+      }
+
+
+      /* =========================
+         ITEM
+      ========================= */
+
+      html += `
+
+        <div class="item">
+
+
+          <!-- =====================
+               TOPO
+          ====================== -->
+
+          <div class="item-top">
+
+
+            <div class="valor">
+
+              <span class="valor-label">
+                Valor recebido
+              </span>
+
+
+              <div class="valor-principal">
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+
+                <span>
+                  ${formatarKz(
+                    dadosSaque.valorLiquido
+                  )}
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="status ${statusClass}"
+            >
+
+              ${statusIcon}
+
+              ${escaparHTML(status)}
+
+            </div>
+
+
+          </div>
+
+
+          <!-- =====================
+               INFORMAÇÕES
+          ====================== -->
+
+          <div class="item-body">
+
+
+            <!-- MÉTODO -->
+
+            <div>
+
+              <i class="${
+                metodo === "BANCO"
+                  ? "fa-solid fa-building-columns"
+                  : "fa-solid fa-mobile-screen-button"
+              }"></i>
+
+              <span>
+
+                Método:
+                ${escaparHTML(metodo)}
+
+              </span>
+
+            </div>
+
+
+            <!-- DATA -->
+
+            <div>
+
+              <i class="fa-solid fa-calendar-days"></i>
+
+              <span>
+
+                ${escaparHTML(dataHora)}
+
+              </span>
+
+            </div>
+
+
+            <!-- ID + VALOR DE SAQUE + TAXA -->
+
+            <div class="id-taxa-row">
+
+
+              <div class="id-info">
+
+                <i class="fa-solid fa-fingerprint"></i>
+
+                <span class="id-text">
+
+                  ID:
+                  ${escaparHTML(id)}
+
+                </span>
+
+              </div>
+
+
+              <div class="financeiro-info">
+
+
+                <!-- VALOR DE SAQUE -->
+
+                <div class="saque-info">
+
+                  <i class="fa-solid fa-money-bill-transfer"></i>
+
+                  Saque:
+                  ${formatarKz(
+                    dadosSaque.valorSolicitado
+                  )}
+
+                </div>
+
+
+                <!-- TAXA -->
+
+                <div class="taxa-info">
+
+                  <i class="fa-solid fa-percent"></i>
+
+                  Taxa:
+                  ${formatarKz(
+                    dadosSaque.taxa
+                  )}
+
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+
+          <!-- =====================
+               MÉTODO DE SAQUE
+          ====================== -->
+
+          ${metodoHTML}
+
+
+        </div>
+
+      `;
+
+    }
+  );
+
+
+  container.innerHTML =
+    html;
+
+}
+
+</script>
+
+</body>
+</html>
